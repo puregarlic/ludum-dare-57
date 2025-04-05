@@ -31,7 +31,7 @@ func _animation_resolved_callback():
 		current_background.transition_speed_with_curve(curves[animation_queue.front()["name"]], animation_queue.front()["transition_length"])
 
 # Animation functions
-func speed_up_slow_down(animation_length_in_seconds: float):
+func gentle_speed_up_slow_down(animation_length_in_seconds: float):
 	var transition_length := animation_length_in_seconds / 3
 	_add_animation_to_queue("ramp_from_100_to_150", transition_length)
 	_add_animation_to_queue("150", transition_length)
