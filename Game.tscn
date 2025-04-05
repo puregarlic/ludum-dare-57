@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsply3kn0se66"]
 
-[ext_resource type="Script" uid="uid://x0fjqqxfwdwa" path="res://game.gd" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://d3ayc0y80cdpd" path="res://scrolling_background/scrolling_background.tscn" id="1_wbfu4"]
+[ext_resource type="PackedScene" uid="uid://6pa8wfua8j4d" path="res://scrolling_background/subviewport/scrolling_background_viewport.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bf2xc76l0qbdb" path="res://anim_example.gd" id="1_e2o6t"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_e2o6t")
 
-[node name="ScrollingBackground" parent="." instance=ExtResource("1_wbfu4")]
+[node name="ScrollingBackgroundEngine" parent="." instance=ExtResource("1_80nbo")]

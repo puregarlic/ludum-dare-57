@@ -20,8 +20,8 @@ default_curve = ExtResource("2_qt5qg")
 curve = SubResource("Curve3D_rgm8w")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 7, -60.1772)
-progress = 60.1773
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 7, -124.319)
+progress = 124.319
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
 fov = 90.0
