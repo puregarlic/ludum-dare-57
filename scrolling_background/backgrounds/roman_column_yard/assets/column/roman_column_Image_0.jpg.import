@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c720ludoljq7r"
-path.s3tc="res://.godot/imported/Stone_panels_01_roughness.jpg-6eb3bd03852d46fdc800a173fbb726b8.s3tc.ctex"
+uid="uid://de3xyhnxyfa0q"
+path.s3tc="res://.godot/imported/roman_column_Image_0.jpg-c7e8f613393056a46efa7575ca480d7f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "7eba5a1d1c493dcbee4b1aced7dce999"
+}
 
 [deps]
 
-source_file="res://ScrollingBackground/Backgrounds/RomanColumnYard/assets/stone_material/Stone_panels_01_roughness.jpg"
-dest_files=["res://.godot/imported/Stone_panels_01_roughness.jpg-6eb3bd03852d46fdc800a173fbb726b8.s3tc.ctex"]
+source_file="res://scrolling_background/backgrounds/roman_column_yard/assets/column/roman_column_Image_0.jpg"
+dest_files=["res://.godot/imported/roman_column_Image_0.jpg-c7e8f613393056a46efa7575ca480d7f.s3tc.ctex"]
 
 [params]
 

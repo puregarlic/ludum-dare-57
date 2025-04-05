@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlcd0kt65jt8e"]
+
+[ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_u8f1m"]
+[ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_qt5qg"]
+[ext_resource type="PackedScene" uid="uid://27pyii5wv1x8" path="res://scrolling_background/backgrounds/roman_column_yard/column_yard_tile.tscn" id="3_0cabo"]
+
+[sub_resource type="Curve3D" id="Curve3D_rgm8w"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 7, -200),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="RomanColumnYard" type="Node3D" node_paths=PackedStringArray("rail_follower")]
+script = ExtResource("1_u8f1m")
+rail_follower = NodePath("CameraRail/CameraRailFollow3D")
+default_curve = ExtResource("2_qt5qg")
+
+[node name="CameraRail" type="Path3D" parent="."]
+curve = SubResource("Curve3D_rgm8w")
+
+[node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 7, -129.198)
+progress = 129.198
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
+
+[node name="ColumnYardTile1" parent="." instance=ExtResource("3_0cabo")]
+
+[node name="ColumnYardTile2" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
+
+[node name="ColumnYardTile3" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -400)
+
+[node name="ColumnYardTile4" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -600)
+
+[node name="ColumnYardTile5" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -800)
+
+[node name="ColumnYardTile6" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000)
+
+[node name="ColumnYardTile7" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1200)
+
+[node name="ColumnYardTile8" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1400)
+
+[node name="ColumnYardTile9" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1600)
+
+[node name="ColumnYardTile10" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1800)
+
+[node name="ColumnYardTile11" parent="." instance=ExtResource("3_0cabo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2000)

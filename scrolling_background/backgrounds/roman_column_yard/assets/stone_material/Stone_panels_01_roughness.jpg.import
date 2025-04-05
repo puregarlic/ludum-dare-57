@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dolqfunxnhd58"
-path.s3tc="res://.godot/imported/Stone_panels_01_metallic.jpg-ce7c4b56976f88f67eda2108ca96f94f.s3tc.ctex"
+uid="uid://c720ludoljq7r"
+path.s3tc="res://.godot/imported/Stone_panels_01_roughness.jpg-37ae2127306e3708f4813afb9148ab7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ScrollingBackground/Backgrounds/RomanColumnYard/assets/stone_material/Stone_panels_01_metallic.jpg"
-dest_files=["res://.godot/imported/Stone_panels_01_metallic.jpg-ce7c4b56976f88f67eda2108ca96f94f.s3tc.ctex"]
+source_file="res://scrolling_background/backgrounds/roman_column_yard/assets/stone_material/Stone_panels_01_roughness.jpg"
+dest_files=["res://.godot/imported/Stone_panels_01_roughness.jpg-37ae2127306e3708f4813afb9148ab7e.s3tc.ctex"]
 
 [params]
 

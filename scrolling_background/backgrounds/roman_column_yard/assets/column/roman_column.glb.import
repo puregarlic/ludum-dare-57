@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://e25cav2f0epj"
-path="res://.godot/imported/roman_column.glb-f273ad512b98628362ada426d10b6509.scn"
+path="res://.godot/imported/roman_column.glb-d6c898f00e38a5b439f7d96ebbde3bcb.scn"
 
 [deps]
 
-source_file="res://ScrollingBackground/Backgrounds/RomanColumnYard/assets/column/roman_column.glb"
-dest_files=["res://.godot/imported/roman_column.glb-f273ad512b98628362ada426d10b6509.scn"]
+source_file="res://scrolling_background/backgrounds/roman_column_yard/assets/column/roman_column.glb"
+dest_files=["res://.godot/imported/roman_column.glb-d6c898f00e38a5b439f7d96ebbde3bcb.scn"]
 
 [params]
 
