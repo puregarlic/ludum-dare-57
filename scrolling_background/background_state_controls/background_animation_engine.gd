@@ -32,7 +32,6 @@ func _animation_resolved_callback():
 
 # Animation functions
 func anim_gentle_speed_up_slow_down(animation_length_in_seconds: float):
-	print("CALLING THE ANIM INTERNALLY")
 	var transition_length := animation_length_in_seconds / 3
 	_add_animation_to_queue("ramp_from_100_to_150", transition_length)
 	_add_animation_to_queue("150", transition_length)

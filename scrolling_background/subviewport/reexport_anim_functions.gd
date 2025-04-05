@@ -15,7 +15,6 @@ func _ready():
 			}
 
 func call_anim(name: String, args: Array = []):
-	print("CALLING IN CALL_ANIM")
 	var full_name = name
 	if full_name in anim_methods:
 		return anim_methods[full_name]["callable"].callv(args)
