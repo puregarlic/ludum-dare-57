@@ -1,3 +1,42 @@
-[gd_scene format=3 uid="uid://dwli5mdj1wv1r"]
+[gd_scene load_steps=5 format=3 uid="uid://dwli5mdj1wv1r"]
 
-[node name="BigHole" type="Node3D"]
+[ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_sec2o"]
+[ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_yp1fm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aslor"]
+flip_faces = true
+top_radius = 7.0
+bottom_radius = 7.0
+height = 20.0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="Curve3D" id="Curve3D_sec2o"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -20, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="BigHole" type="Node3D" node_paths=PackedStringArray("rail_follower")]
+script = ExtResource("1_sec2o")
+rail_follower = NodePath("CameraRail/CameraRailFollow3D")
+progress_speed = 3.0
+default_curve = ExtResource("2_yp1fm")
+
+[node name="WallCylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+mesh = SubResource("CylinderMesh_aslor")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+
+[node name="CameraRail" type="Path3D" parent="."]
+curve = SubResource("Curve3D_sec2o")
+
+[node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
+transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -17.8575, 0)
+progress = 17.8575
+
+[node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
+fov = 90.0

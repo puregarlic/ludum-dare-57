@@ -3,7 +3,7 @@ class_name BackgroundProgression
 extends Node3D
 
 enum BackgroundStates { ROMAN_COLUMN_YARD, ROMAN_COLUMN_YARD_TO_BIG_HOLE, BIG_HOLE }
-var current_state: BackgroundStates = BackgroundStates.ROMAN_COLUMN_YARD
+@export var current_state: BackgroundStates = BackgroundStates.ROMAN_COLUMN_YARD
 var backgrounds = {
 	BackgroundStates.ROMAN_COLUMN_YARD: preload("res://scrolling_background/backgrounds/roman_column_yard/roman_column_yard.tscn"),
 	BackgroundStates.ROMAN_COLUMN_YARD_TO_BIG_HOLE: preload("res://scrolling_background/backgrounds/roman_column_yard_big_hole_transition/roman_column_yard_big_hole_transition.tscn"),
