@@ -14,7 +14,7 @@ var animation_queue = []
 
 func set_managed_background(background: Background):
 	current_background = background
-	current_background.anim_finished.connect(_animation_resolved_callback)
+	current_background.anim_finished.connect(_on_animation_resolved)
 	
 func remove_managed_background(background: Background):
 	animation_queue = []
@@ -25,7 +25,7 @@ func _add_animation_to_queue(curve_name: String, transition_length: float):
 		current_background.transition_speed_with_curve(curves[curve_name], transition_length)
 	animation_queue.append({ "name": curve_name, "transition_length": transition_length })
 	
-func _animation_resolved_callback():
+func _on_animation_resolved():
 	animation_queue.pop_front()
 	if len(animation_queue) > 0:
 		current_background.transition_speed_with_curve(curves[animation_queue.front()["name"]], animation_queue.front()["transition_length"])

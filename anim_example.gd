@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 	
 	if delta_acc >= 3.0:
 		delta_acc = -1.0
-		$ScrollingBackgroundEngine.call_anim("anim_gentle_speed_up_slow_down", [7.0])
+		#$ScrollingBackgroundEngine.call_anim("anim_gentle_speed_up_slow_down", [7.0])
+		$ScrollingBackgroundEngine.transition_to_next()

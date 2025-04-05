@@ -1,7 +1,7 @@
 @tool
 extends SubViewportContainer
 
-@onready var deep_node := $SubViewport/ScrollingBackground/BackgroundAnimationEngine
+@onready var deep_node := $SubViewport/BackgroundState/BackgroundAnimationEngine
 var anim_methods := {}
 
 func _ready():
@@ -31,3 +31,6 @@ func list_anim_methods() -> Array:
 			"argument_names": info.argument_names
 		})
 	return methods
+
+func transition_to_next():
+	$SubViewport/BackgroundState.transition_to_next()
