@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlcd0kt65jt8e"]
+[gd_scene load_steps=6 format=3 uid="uid://dlcd0kt65jt8e"]
 
 [ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_u8f1m"]
 [ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_qt5qg"]
 [ext_resource type="PackedScene" uid="uid://27pyii5wv1x8" path="res://scrolling_background/backgrounds/roman_column_yard/column_yard_tile.tscn" id="3_0cabo"]
-[ext_resource type="Material" uid="uid://d4l2wdkk1fjrh" path="res://scrolling_background/backgrounds/roman_column_yard/sky_procedural.tres" id="4_886ge"]
+[ext_resource type="Environment" uid="uid://va4yx0t0qmur" path="res://scrolling_background/backgrounds/roman_column_yard/roman_column_yard_env.tres" id="4_886ge"]
 
 [sub_resource type="Curve3D" id="Curve3D_rgm8w"]
 _data = {
@@ -11,34 +11,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
-
-[sub_resource type="Sky" id="Sky_886ge"]
-sky_material = ExtResource("4_886ge")
-
-[sub_resource type="Environment" id="Environment_ves3g"]
-background_mode = 2
-sky = SubResource("Sky_886ge")
-ambient_light_source = 3
-ambient_light_sky_contribution = 0.1
-reflected_light_source = 1
-tonemap_mode = 3
-ssao_radius = 3.44
-ssao_intensity = 16.0
-ssao_detail = 5.0
-ssil_radius = 0.01
-ssil_intensity = 6.03
-glow_intensity = 8.0
-fog_mode = 1
-fog_density = 1.0
-fog_height = -1024.0
-fog_height_density = 1.8855
-fog_depth_curve = 78.7932
-fog_depth_begin = 0.0
-fog_depth_end = 2262.5
-volumetric_fog_density = 0.0255
-volumetric_fog_anisotropy = -0.25
-volumetric_fog_length = 125.78
-volumetric_fog_sky_affect = 0.0
 
 [node name="RomanColumnYard" type="Node3D" node_paths=PackedStringArray("rail_follower")]
 script = ExtResource("1_u8f1m")
@@ -49,8 +21,8 @@ default_curve = ExtResource("2_qt5qg")
 curve = SubResource("Curve3D_rgm8w")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 7, -3.86968)
-progress = 3.87008
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 7, -164.114)
+progress = 164.114
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
 fov = 95.0
@@ -92,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2000)
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
-environment = SubResource("Environment_ves3g")
+environment = ExtResource("4_886ge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.707107, 0.241845, 0.664463, 0, -0.939693, 0.34202, 0.707107, -0.241845, -0.664463, 0, 0, 0)

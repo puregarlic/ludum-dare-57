@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://27pyii5wv1x8"]
 
-[ext_resource type="Material" uid="uid://bnlxiqphyb0rw" path="res://scrolling_background/backgrounds/roman_column_yard/assets/stone_material/stone_panels_material.tres" id="1_kehfi"]
-[ext_resource type="PackedScene" uid="uid://e25cav2f0epj" path="res://scrolling_background/backgrounds/roman_column_yard/assets/column/roman_column.glb" id="2_h24qt"]
+[ext_resource type="Material" uid="uid://bnlxiqphyb0rw" path="res://scrolling_background/backgrounds/assets/stone_material_panels/stone_panels_material.tres" id="1_kehfi"]
+[ext_resource type="PackedScene" uid="uid://e25cav2f0epj" path="res://scrolling_background/backgrounds/assets/column/roman_column.glb" id="2_h24qt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_csay4"]
 size = Vector2(200, 200)

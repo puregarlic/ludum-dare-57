@@ -5,6 +5,7 @@
 
 [node name="ScrollingBackground" type="Node3D"]
 script = ExtResource("1_5ou0j")
+current_state = 1
 
 [node name="BackgroundAnimationEngine" type="Node" parent="."]
 script = ExtResource("2_sw0b2")

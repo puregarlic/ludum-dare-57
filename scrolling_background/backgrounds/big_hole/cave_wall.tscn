@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://1sla2wruktvd"]
+
+[ext_resource type="Material" uid="uid://c6a18n7o6xfl5" path="res://scrolling_background/backgrounds/assets/stone_base_01/stone_base.tres" id="1_yovth"]
+[ext_resource type="PackedScene" uid="uid://e25cav2f0epj" path="res://scrolling_background/backgrounds/assets/column/roman_column.glb" id="2_4dfwq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aslor"]
+lightmap_size_hint = Vector2i(221, 1074)
+material = ExtResource("1_yovth")
+flip_faces = true
+top_radius = 7.0
+bottom_radius = 7.0
+height = 20.0
+cap_top = false
+cap_bottom = false
+
+[node name="CaveWall" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_aslor")
+
+[node name="roman_column2" parent="." instance=ExtResource("2_4dfwq")]
+transform = Transform3D(0.2, 0, 0, 0, 0.0347296, 0.196962, 0, -0.196962, 0.0347296, 3, 5.5, 7)
+
+[node name="roman_column3" parent="." instance=ExtResource("2_4dfwq")]
+transform = Transform3D(0.2, 0, 0, 0, 0.0347296, 0.196962, 0, -0.196962, 0.0347296, -3, 5.5, 7)

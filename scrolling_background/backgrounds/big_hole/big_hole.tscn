@@ -1,15 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwli5mdj1wv1r"]
+[gd_scene load_steps=6 format=3 uid="uid://dwli5mdj1wv1r"]
 
 [ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_sec2o"]
 [ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_yp1fm"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_aslor"]
-flip_faces = true
-top_radius = 7.0
-bottom_radius = 7.0
-height = 20.0
-cap_top = false
-cap_bottom = false
+[ext_resource type="Environment" uid="uid://csxbj4enxjbrj" path="res://scrolling_background/backgrounds/big_hole/big_hole_env.tres" id="3_rbmj6"]
+[ext_resource type="PackedScene" uid="uid://1sla2wruktvd" path="res://scrolling_background/backgrounds/big_hole/cave_wall.tscn" id="4_rbmj6"]
 
 [sub_resource type="Curve3D" id="Curve3D_sec2o"]
 _data = {
@@ -24,19 +18,136 @@ rail_follower = NodePath("CameraRail/CameraRailFollow3D")
 progress_speed = 3.0
 default_curve = ExtResource("2_yp1fm")
 
-[node name="WallCylinder" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
-mesh = SubResource("CylinderMesh_aslor")
-
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
-
 [node name="CameraRail" type="Path3D" parent="."]
 curve = SubResource("Curve3D_sec2o")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -17.8575, 0)
-progress = 17.8575
+transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -11.7042, 0)
+progress = 11.7042
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
 fov = 90.0
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = ExtResource("3_rbmj6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.707107, -0.579228, 0.40558, 0, 0.573577, 0.819152, -0.707107, 0.579228, -0.40558, 0, 0, 0)
+light_color = Color(0.450312, 0.395974, 0.369428, 1)
+light_energy = 1.3
+light_specular = 16.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_opacity = 0.75
+shadow_blur = 0.0
+directional_shadow_mode = 0
+directional_shadow_fade_start = 1.0
+sky_mode = 1
+
+[node name="CaveWalls" type="Node3D" parent="."]
+
+[node name="CaveWall1" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall2" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall3" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall4" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -70, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall5" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -90, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall6" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -110, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall7" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -130, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall8" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall9" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -170, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall10" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -190, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall11" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -210, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall12" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -230, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall13" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -250, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall14" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -270, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall15" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -290, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall16" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -310, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall17" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -330, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall18" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -350, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall19" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -370, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall20" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -390, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall21" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -410, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall22" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -430, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall23" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -450, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall24" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -470, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall25" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -490, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall26" parent="CaveWalls" instance=ExtResource("4_rbmj6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -510, 0)
+skeleton = NodePath("../..")

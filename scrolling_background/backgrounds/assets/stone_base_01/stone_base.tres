@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://c6a18n7o6xfl5"]
+
+[ext_resource type="Texture2D" uid="uid://c5lhfrelyk4jh" path="res://scrolling_background/backgrounds/assets/stone_base_01/stone_base_01_basecolor.jpg" id="1_tlhl5"]
+[ext_resource type="Texture2D" uid="uid://dx8otwrdyxqid" path="res://scrolling_background/backgrounds/assets/stone_base_01/stone_base_01_ambientocclusion.jpg" id="2_ym4va"]
+[ext_resource type="Texture2D" uid="uid://dn1c5a21bvv2y" path="res://scrolling_background/backgrounds/assets/stone_base_01/stone_base_01_height.jpg" id="3_fal33"]
+[ext_resource type="Texture2D" uid="uid://y5k1llvydx24" path="res://scrolling_background/backgrounds/assets/stone_base_01/stone_base_01_metallic.jpg" id="4_8xuq3"]
+[ext_resource type="Texture2D" uid="uid://drnupuf262n6w" path="res://scrolling_background/backgrounds/assets/stone_base_01/stone_base_01_normal.jpg" id="5_5rvwc"]
+[ext_resource type="Texture2D" uid="uid://dsu2kalrpo6qo" path="res://scrolling_background/backgrounds/assets/stone_base_01/stone_base_01_roughness.jpg" id="6_qd410"]
+
+[resource]
+albedo_texture = ExtResource("1_tlhl5")
+metallic = 1.0
+metallic_texture = ExtResource("4_8xuq3")
+roughness_texture = ExtResource("6_qd410")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+normal_enabled = true
+normal_texture = ExtResource("5_5rvwc")
+ao_enabled = true
+ao_texture = ExtResource("2_ym4va")
+heightmap_enabled = true
+heightmap_scale = 2.0
+heightmap_texture = ExtResource("3_fal33")

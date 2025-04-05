@@ -1,0 +1,27 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://csxbj4enxjbrj"]
+
+[ext_resource type="Material" uid="uid://d4l2wdkk1fjrh" path="res://scrolling_background/backgrounds/sky_procedural.tres" id="1_py7nt"]
+
+[sub_resource type="Sky" id="Sky_886ge"]
+sky_material = ExtResource("1_py7nt")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_886ge")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.1
+reflected_light_source = 1
+tonemap_mode = 3
+tonemap_white = 0.7
+ssao_radius = 3.44
+ssao_intensity = 16.0
+ssao_detail = 5.0
+ssil_radius = 0.01
+ssil_intensity = 6.03
+glow_intensity = 8.0
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_length = 600.0

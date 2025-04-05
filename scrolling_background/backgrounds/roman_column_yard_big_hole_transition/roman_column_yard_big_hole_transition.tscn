@@ -1,3 +1,224 @@
-[gd_scene format=3 uid="uid://dmqobf78rtbj"]
+[gd_scene load_steps=15 format=3 uid="uid://dmqobf78rtbj"]
 
-[node name="RomanColumnToBigHoleTransition" type="Node3D"]
+[ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_8mawa"]
+[ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_dypng"]
+[ext_resource type="PackedScene" uid="uid://27pyii5wv1x8" path="res://scrolling_background/backgrounds/roman_column_yard/column_yard_tile.tscn" id="2_e58kj"]
+[ext_resource type="Environment" uid="uid://va4yx0t0qmur" path="res://scrolling_background/backgrounds/roman_column_yard/roman_column_yard_env.tres" id="3_dypng"]
+[ext_resource type="PackedScene" uid="uid://1sla2wruktvd" path="res://scrolling_background/backgrounds/big_hole/cave_wall.tscn" id="4_dypng"]
+[ext_resource type="Material" uid="uid://bnlxiqphyb0rw" path="res://scrolling_background/backgrounds/assets/stone_material_panels/stone_panels_material.tres" id="6_xfe1x"]
+[ext_resource type="Texture2D" uid="uid://di2wh7yvi0378" path="res://scrolling_background/backgrounds/assets/stone_material_panels/Stone_panels_01_basecolor.jpg" id="7_ugclx"]
+[ext_resource type="Texture2D" uid="uid://cmb2bhxiae2uv" path="res://scrolling_background/backgrounds/assets/stone_material_panels/Stone_panels_01_ambientocclusion.jpg" id="8_sdp7i"]
+[ext_resource type="Texture2D" uid="uid://dtaot708pf221" path="res://scrolling_background/backgrounds/assets/stone_material_panels/Stone_panels_01_height.jpg" id="9_jm048"]
+[ext_resource type="Texture2D" uid="uid://dolqfunxnhd58" path="res://scrolling_background/backgrounds/assets/stone_material_panels/Stone_panels_01_metallic.jpg" id="10_k01i4"]
+[ext_resource type="Texture2D" uid="uid://b0tdv2vvp7rpm" path="res://scrolling_background/backgrounds/assets/stone_material_panels/Stone_panels_01_normal.jpg" id="11_wt20m"]
+[ext_resource type="Texture2D" uid="uid://c720ludoljq7r" path="res://scrolling_background/backgrounds/assets/stone_material_panels/Stone_panels_01_roughness.jpg" id="12_07hyu"]
+
+[sub_resource type="Curve3D" id="Curve3D_xfe1x"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 7, -2200, 0, 30, 0, 0, 0, 0, 0, -1, -2220),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3lqd"]
+albedo_texture = ExtResource("7_ugclx")
+metallic = 1.0
+metallic_texture = ExtResource("10_k01i4")
+roughness_texture = ExtResource("12_07hyu")
+normal_enabled = true
+normal_texture = ExtResource("11_wt20m")
+ao_enabled = true
+ao_texture = ExtResource("8_sdp7i")
+heightmap_enabled = true
+heightmap_texture = ExtResource("9_jm048")
+uv1_triplanar = true
+
+[node name="RomanColumnToBigHoleTransition" type="Node3D" node_paths=PackedStringArray("rail_follower")]
+script = ExtResource("1_8mawa")
+rail_follower = NodePath("CameraRail/CameraRailFollow3D")
+default_curve = ExtResource("2_dypng")
+
+[node name="CameraRail" type="Path3D" parent="."]
+curve = SubResource("Curve3D_xfe1x")
+
+[node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
+transform = Transform3D(0.999995, 0, 0, 0, -4.37109e-08, 0.999994, 0, -0.999989, -4.37111e-08, 0, -1, -2220)
+progress = 2234.46
+
+[node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
+fov = 95.0
+
+[node name="ColumnYardTiles" type="Node3D" parent="."]
+
+[node name="ColumnYardTile1" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+
+[node name="ColumnYardTile2" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
+
+[node name="ColumnYardTile3" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -400)
+
+[node name="ColumnYardTile4" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -600)
+
+[node name="ColumnYardTile5" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -800)
+
+[node name="ColumnYardTile6" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000)
+
+[node name="ColumnYardTile7" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1200)
+
+[node name="ColumnYardTile8" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1400)
+
+[node name="ColumnYardTile9" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1600)
+
+[node name="ColumnYardTile10" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1800)
+
+[node name="ColumnYardTile11" parent="ColumnYardTiles" instance=ExtResource("2_e58kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2000)
+
+[node name="CaveWalls" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1, -2220)
+
+[node name="CaveWall1" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall2" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall3" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall4" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -70, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall5" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -90, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall6" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -110, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall7" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -130, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall8" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall9" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -170, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall10" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -190, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall11" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -210, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall12" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -230, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall13" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -250, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall14" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -270, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall15" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -290, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall16" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -310, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall17" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -330, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall18" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -350, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall19" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -370, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall20" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -390, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall21" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -410, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall22" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -430, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall23" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -450, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall24" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -470, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall25" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -490, 0)
+skeleton = NodePath("../..")
+
+[node name="CaveWall26" parent="CaveWalls" instance=ExtResource("4_dypng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -510, 0)
+skeleton = NodePath("../..")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = ExtResource("3_dypng")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.707107, 0.241845, 0.664463, 0, -0.939693, 0.34202, 0.707107, -0.241845, -0.664463, 0, 0, 0)
+light_color = Color(0.450312, 0.395974, 0.369428, 1)
+light_energy = 2.0
+light_specular = 3.0
+light_bake_mode = 0
+shadow_enabled = true
+shadow_opacity = 0.9
+shadow_blur = 0.2
+directional_shadow_mode = 0
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 1200.0
+sky_mode = 1
+
+[node name="CSGGeom" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2220)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGGeom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -80)
+size = Vector3(200, 1, 200)
+material = ExtResource("6_xfe1x")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGGeom/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0211716, 80)
+operation = 2
+radius = 7.0
+sides = 64
+material = SubResource("StandardMaterial3D_y3lqd")
