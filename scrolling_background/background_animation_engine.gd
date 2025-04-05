@@ -26,6 +26,7 @@ func _add_animation_to_queue(curve_name: String, transition_length: float):
 	animation_queue.append({ "name": curve_name, "transition_length": transition_length })
 	
 func _animation_resolved_callback():
+	animation_queue.pop_front()
 	if len(animation_queue) > 0:
 		current_background.transition_speed_with_curve(curves[animation_queue.front()["name"]], animation_queue.front()["transition_length"])
 
