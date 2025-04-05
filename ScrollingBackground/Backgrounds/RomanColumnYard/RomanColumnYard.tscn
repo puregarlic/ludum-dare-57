@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlcd0kt65jt8e"]
+
+[ext_resource type="Material" uid="uid://bnlxiqphyb0rw" path="res://ScrollingBackground/Backgrounds/RomanColumnYard/assets/stone_material/stone_panels_material.tres" id="1_rgupc"]
+[ext_resource type="PackedScene" uid="uid://e25cav2f0epj" path="res://ScrollingBackground/Backgrounds/RomanColumnYard/assets/column/roman_column.glb" id="2_rgm8w"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_csay4"]
+size = Vector2(200, 200)
+
+[node name="RomanColumnYard" type="Node3D"]
+
+[node name="GroundPlane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
+material_override = ExtResource("1_rgupc")
+mesh = SubResource("PlaneMesh_csay4")
+
+[node name="Columns" type="Node3D" parent="."]
+
+[node name="roman_column1" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -4)
+
+[node name="roman_column2" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -4)
+
+[node name="roman_column3" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -24)
+
+[node name="roman_column4" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -24)
+
+[node name="roman_column5" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -44)
+
+[node name="roman_column6" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -44)
+
+[node name="roman_column7" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -64)
+
+[node name="roman_column8" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -64)
+
+[node name="roman_column9" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -84)
+
+[node name="roman_column10" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -84)
+
+[node name="roman_column11" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -104)
+
+[node name="roman_column12" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -104)
+
+[node name="roman_column13" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -124)
+
+[node name="roman_column14" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -124)
+
+[node name="roman_column15" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -144)
+
+[node name="roman_column16" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -144)
+
+[node name="roman_column17" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -164)
+
+[node name="roman_column18" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -164)
+
+[node name="roman_column19" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -184)
+
+[node name="roman_column20" parent="Columns" instance=ExtResource("2_rgm8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -184)
