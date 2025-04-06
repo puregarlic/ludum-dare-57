@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcjn6jx5b6sto" path="res://dialogue/speaker.gd" id="1_wh5ik"]
 [ext_resource type="PackedScene" uid="uid://2dk5c86dnip3" path="res://speaker_animation/speaker_animation.tscn" id="2_1wgn8"]
-[ext_resource type="SpriteFrames" uid="uid://bycmt6anjpi71" path="res://speaker_animation/pius.tres" id="3_6sq8u"]
+[ext_resource type="StyleBox" uid="uid://cspbp1bphtka5" path="res://dialogue/panel_style.tres" id="2_6sq8u"]
 
 [node name="Speaker" type="Node2D"]
 script = ExtResource("1_wh5ik")
@@ -30,13 +30,26 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
+theme_override_constants/margin_bottom = 125
 
-[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer/HDialogueContainer/MarginContainer"]
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/HDialogueContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("2_6sq8u")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HDialogueContainer/MarginContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer/HDialogueContainer/MarginContainer/Panel/MarginContainer"]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
+fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -67,9 +80,7 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 position = Vector2(0, -70)
 scale = Vector2(0.648148, 0.648148)
-sprite_frames = ExtResource("3_6sq8u")
-frame_progress = 0.473434
-philosopher = 0
+frame_progress = 0.335957
 intensity_switch_chance = 0.2
 
 [node name="Control" type="Control" parent="VBoxContainer/HBustContainer"]
@@ -80,4 +91,4 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 volume_db = 24.0
 
-[connection signal="meta_clicked" from="VBoxContainer/HDialogueContainer/MarginContainer/DialogueLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/HDialogueContainer/MarginContainer/Panel/MarginContainer/DialogueLabel" to="." method="_on_rich_text_label_meta_clicked"]

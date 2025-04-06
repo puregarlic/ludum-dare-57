@@ -35,6 +35,7 @@ var url_format = "[url={payload}]{word}[/url]"
 var format = " [font n={font} {args}]{word}[/font]"
 
 func _ready():
+	var style_box: StyleBox = preload("res://dialogue/panel_style.tres")
 	match alignment:
 		Alignment.LEFT:
 			bust.philosopher = 0
@@ -44,6 +45,7 @@ func _ready():
 			bust.philosopher = 1
 			dialogue_container.layout_direction = 3
 			bust_container.layout_direction = 3
+			style_box.skew *= -1
 
 func _process(delta: float) -> void:
 	match state:
