@@ -80,7 +80,7 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 position = Vector2(0, -70)
 scale = Vector2(0.648148, 0.648148)
-frame_progress = 0.335957
+frame_progress = 0.151953
 intensity_switch_chance = 0.2
 
 [node name="Control" type="Control" parent="VBoxContainer/HBustContainer"]

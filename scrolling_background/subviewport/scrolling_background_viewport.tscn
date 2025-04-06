@@ -1,8 +1,84 @@
-[gd_scene load_steps=4 format=3 uid="uid://6pa8wfua8j4d"]
+[gd_scene load_steps=7 format=3 uid="uid://6pa8wfua8j4d"]
 
 [ext_resource type="Script" uid="uid://b0f666m34vpnk" path="res://scrolling_background/subviewport/reexport_internal_functions.gd" id="1_ygovm"]
 [ext_resource type="Script" uid="uid://doqu8lsifwmss" path="res://scrolling_background/subviewport/dynamic_subviewport_size.gd" id="1_ygr6s"]
 [ext_resource type="PackedScene" uid="uid://d3ayc0y80cdpd" path="res://scrolling_background/background_state_controls/background_state.tscn" id="2_4g6o1"]
+[ext_resource type="Script" uid="uid://g2sy3fv4w4nl" path="res://scrolling_background/subviewport/shader_scroller.gd" id="3_ogc75"]
+
+[sub_resource type="Shader" id="Shader_ygovm"]
+code = "shader_type canvas_item;
+
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
+
+uniform float time;
+uniform float glitch_strength = 0.005;
+uniform float glitch_band_density = 30.0;
+uniform float slice_strength = 0.003;
+uniform float slice_density = 10.0;
+uniform float scanline_intensity = 0.02;
+uniform float scanline_density = 300.0;
+uniform float color_offset = 0.002;
+uniform float wave_distortion = 0.004;
+uniform float lens_distortion = 0.25;
+uniform vec3 tint_color = vec3(1.05, 0.8, 0.9);
+
+float rand(float x) {
+    return fract(sin(x * 12.9898) * 43758.5453);
+}
+
+vec2 fisheye(vec2 uv) {
+    uv = uv * 2.0 - 1.0;
+    float r = length(uv);
+    float theta = atan(uv.y, uv.x);
+    r = pow(r, 1.0 - lens_distortion);
+    uv = r * vec2(cos(theta), sin(theta));
+    return uv * 0.5 + 0.5;
+}
+
+void fragment() {
+    vec2 uv = fisheye(SCREEN_UV);
+
+    float band = fract(uv.y * glitch_band_density + sin(time * 3.5) * 2.0);
+    if (band < 0.1) {
+        uv.x += sin(time * 40.0 + uv.y * 200.0) * glitch_strength;
+    }
+
+    float slice_jitter = rand(floor(uv.x * slice_density)) * 2.0 - 1.0;
+    float slice_trigger = fract(time * 1.5 + uv.x * slice_density);
+    if (slice_trigger < 0.03) {
+        uv.y += slice_jitter * slice_strength;
+    }
+
+    uv.y += sin(uv.x * 6.0 + time * 1.2) * wave_distortion;
+
+    float flicker = sin(time * 15.0) * 0.0015;
+    float r = textureLod(SCREEN_TEXTURE, uv + vec2(color_offset + flicker, 0.0), 0.0).r;
+    float g = textureLod(SCREEN_TEXTURE, uv, 0.0).g;
+    float b = textureLod(SCREEN_TEXTURE, uv - vec2(color_offset + flicker, 0.0), 0.0).b;
+
+    vec3 color = vec3(r, g, b);
+    float scanline = 1.0 + scanline_intensity * sin(uv.y * scanline_density);
+    color *= scanline;
+
+    color *= tint_color;
+
+    COLOR = vec4(color, 1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ogc75"]
+shader = SubResource("Shader_ygovm")
+shader_parameter/time = 1616.24
+shader_parameter/glitch_strength = 0.02
+shader_parameter/glitch_band_density = 80.0
+shader_parameter/slice_strength = 0.015
+shader_parameter/slice_density = 60.0
+shader_parameter/scanline_intensity = 0.1
+shader_parameter/scanline_density = 600.0
+shader_parameter/color_offset = 0.003
+shader_parameter/wave_distortion = 0.01
+shader_parameter/lens_distortion = 0.25
+shader_parameter/tint_color = Vector3(1.05, 0.8, 0.9)
 
 [node name="ScrollingBackgroundViewport" type="SubViewportContainer"]
 script = ExtResource("1_ygovm")
@@ -12,5 +88,15 @@ handle_input_locally = false
 size = Vector2i(2560, 1369)
 render_target_update_mode = 4
 script = ExtResource("1_ygr6s")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+material = SubResource("ShaderMaterial_ogc75")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.00392157, 1, 0.403922)
+script = ExtResource("3_ogc75")
 
 [node name="BackgroundState" parent="SubViewport" instance=ExtResource("2_4g6o1")]
