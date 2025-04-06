@@ -1,30 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh2l1mqutpnq1"]
+[gd_scene load_steps=6 format=3 uid="uid://dh2l1mqutpnq1"]
 
 [ext_resource type="Script" uid="uid://dcjn6jx5b6sto" path="res://dialogue/speaker.gd" id="1_wh5ik"]
 [ext_resource type="PackedScene" uid="uid://2dk5c86dnip3" path="res://speaker_animation/speaker_animation.tscn" id="2_1wgn8"]
 [ext_resource type="StyleBox" uid="uid://cspbp1bphtka5" path="res://dialogue/panel_style.tres" id="2_6sq8u"]
+[ext_resource type="PackedScene" uid="uid://dqnmq7pp80dfp" path="res://gear/gear.tscn" id="2_shamw"]
+[ext_resource type="PackedScene" uid="uid://dw3gvmb5y0iho" path="res://lightbulb/lightbulb.tscn" id="3_wxj1k"]
 
 [node name="Speaker" type="Node2D"]
 script = ExtResource("1_wh5ik")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="HDialogueContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Gear" parent="Control/VBoxContainer/HBoxContainer/Control" instance=ExtResource("2_shamw")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0705267
+scale = Vector2(0.0712521, 0.0712521)
+value = 35.0
+tint_progress = Color(0.854562, 0.329929, 0.306755, 1)
+time_left = 0.345
+
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Lightbulb" parent="Control/VBoxContainer/HBoxContainer/Control2" instance=ExtResource("3_wxj1k")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 1995.0
+offset_bottom = 1994.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0201296, 0.0201296)
+
+[node name="HDialogueContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 mouse_filter = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HDialogueContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/HDialogueContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 48
@@ -32,21 +95,20 @@ theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 125
 
-[node name="Panel" type="PanelContainer" parent="VBoxContainer/HDialogueContainer/MarginContainer"]
+[node name="Panel" type="PanelContainer" parent="Control/VBoxContainer/HDialogueContainer/MarginContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = ExtResource("2_6sq8u")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HDialogueContainer/MarginContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/HDialogueContainer/MarginContainer/Panel"]
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer/HDialogueContainer/MarginContainer/Panel/MarginContainer"]
+[node name="DialogueLabel" type="RichTextLabel" parent="Control/VBoxContainer/HDialogueContainer/MarginContainer/Panel/MarginContainer"]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -58,38 +120,39 @@ vertical_alignment = 1
 meta_underlined = false
 hint_underlined = false
 
-[node name="Control2" type="Control" parent="VBoxContainer/HDialogueContainer"]
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HDialogueContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="HBustContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBustContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBustContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/HBustContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Control" type="Control" parent="VBoxContainer/HBustContainer/MarginContainer"]
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HBustContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="SpeakerAnimation" parent="VBoxContainer/HBustContainer/MarginContainer/Control" instance=ExtResource("2_1wgn8")]
+[node name="SpeakerAnimation" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2" instance=ExtResource("2_1wgn8")]
 unique_name_in_owner = true
-position = Vector2(0, -70)
-scale = Vector2(0.648148, 0.648148)
-frame_progress = 0.0512133
+position = Vector2(243, 189)
+scale = Vector2(0.436752, 0.436752)
+frame_progress = 0.43134
 intensity_switch_chance = 0.2
 
-[node name="WordSpawnPoint" type="Node2D" parent="VBoxContainer/HBustContainer/MarginContainer/Control/SpeakerAnimation"]
+[node name="WordSpawnPoint" type="Node2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]
 unique_name_in_owner = true
 position = Vector2(38.5714, -439.714)
 
-[node name="Control" type="Control" parent="VBoxContainer/HBustContainer"]
+[node name="Control" type="Control" parent="Control/VBoxContainer/HBustContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
