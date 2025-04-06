@@ -68,7 +68,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ogc75"]
 shader = SubResource("Shader_ygovm")
-shader_parameter/time = 157.221
+shader_parameter/time = 1054.16
 shader_parameter/glitch_strength = 0.02
 shader_parameter/glitch_band_density = 80.0
 shader_parameter/slice_strength = 0.015
@@ -81,6 +81,7 @@ shader_parameter/lens_distortion = 0.25
 shader_parameter/tint_color = Vector3(1.05, 0.8, 0.9)
 
 [node name="ScrollingBackgroundViewport" type="SubViewportContainer"]
+mouse_filter = 2
 script = ExtResource("1_ygovm")
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -96,6 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 0.00392157, 1, 0.403922)
 script = ExtResource("3_ogc75")
 
