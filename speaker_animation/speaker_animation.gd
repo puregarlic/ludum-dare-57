@@ -1,5 +1,5 @@
 @tool
-extends AnimatedSprite2D
+class_name Bust extends AnimatedSprite2D
 
 enum SpeakerAnimationStates { 
 	MATCHING, 

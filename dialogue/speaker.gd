@@ -9,9 +9,11 @@ class_name Speaker extends Node2D
 @export var alignment: Alignment
 @export var voice_map: LetterAudioMap
 
+@onready var bust = %SpeakerAnimation
 @onready var player = %AudioStreamPlayer2D
 @onready var label = %DialogueLabel
-@onready var container = %HBoxContainer
+@onready var dialogue_container = %HDialogueContainer
+@onready var bust_container = %HBustContainer
 
 enum State {
 	SPEAKING,
@@ -35,9 +37,13 @@ var format = " [font n={font} {args}]{word}[/font]"
 func _ready():
 	match alignment:
 		Alignment.LEFT:
-			container.layout_direction = 2
+			bust.philosopher = 0
+			dialogue_container.layout_direction = 2
+			bust_container.layout_direction = 2
 		Alignment.RIGHT:
-			container.layout_direction = 3
+			bust.philosopher = 1
+			dialogue_container.layout_direction = 3
+			bust_container.layout_direction = 3
 
 func _process(delta: float) -> void:
 	match state:
@@ -47,6 +53,7 @@ func _process(delta: float) -> void:
 				state = State.FINISHED_SPEAKING
 				elapsed = 0
 				finished_speaking.emit()
+				bust.matching()
 			else:
 				var cps = speech_duration / float(label.get_total_character_count())
 				
@@ -57,6 +64,7 @@ func _process(delta: float) -> void:
 					if c != "" and c != " ":
 						player.set_stream(voice_map[c])
 						player.play()
+						bust.talk()
 					
 					char_delta = 0
 				else:

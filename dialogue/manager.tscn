@@ -122,6 +122,7 @@ metadata/_custom_type_script = "uid://b5bhvu5wgak3e"
 
 [node name="DialogueManager" type="Node2D"]
 script = ExtResource("1_yeusm")
+speaker = 1
 
 [node name="SpeakerLeft" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("2_khaah")]
 match_font = ExtResource("5_n0hh8")
@@ -129,6 +130,7 @@ match_font_args = "s=30 bot=30"
 block_font = ExtResource("6_wbuqm")
 block_font_args = "s=38 sp=40 top=10"
 manager = NodePath("..")
+speech_duration = 5.0
 voice_map = SubResource("Resource_uma4v")
 
 [node name="SpeakerRight" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("2_khaah")]
