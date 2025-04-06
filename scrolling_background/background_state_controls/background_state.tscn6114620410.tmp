@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ayc0y80cdpd"]
+
+[ext_resource type="Script" uid="uid://b6xk526rlvheg" path="res://scrolling_background/background_state_controls/scrolling_background.gd" id="1_esi4r"]
+[ext_resource type="Script" uid="uid://w23fdpkqj42b" path="res://scrolling_background/background_state_controls/background_animation_engine.gd" id="2_cynec"]
+
+[node name="BackgroundState" type="Node3D"]
+script = ExtResource("1_esi4r")
+
+[node name="BackgroundAnimationEngine" type="Node" parent="."]
+script = ExtResource("2_cynec")

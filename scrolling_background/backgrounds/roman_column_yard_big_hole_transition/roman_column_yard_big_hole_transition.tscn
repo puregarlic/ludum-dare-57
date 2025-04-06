@@ -15,10 +15,10 @@
 
 [sub_resource type="Curve3D" id="Curve3D_xfe1x"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 7, -2200, 0, 30, 0, 0, 0, 0, 0, -1, -2220),
-"tilts": PackedFloat32Array(0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 7, -2150, 0, 0, 0, 0, 0, 0, 0, 7, -2200, 0, 8, 0, 0, 0, 0, 0, -1, -2220),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 3
+point_count = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3lqd"]
 albedo_texture = ExtResource("7_ugclx")
@@ -36,14 +36,15 @@ uv1_triplanar = true
 [node name="RomanColumnToBigHoleTransition" type="Node3D" node_paths=PackedStringArray("rail_follower")]
 script = ExtResource("1_8mawa")
 rail_follower = NodePath("CameraRail/CameraRailFollow3D")
+progress_speed = 55.0
 default_curve = ExtResource("2_dypng")
 
 [node name="CameraRail" type="Path3D" parent="."]
 curve = SubResource("Curve3D_xfe1x")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(0.999995, 0, 0, 0, 0.999989, 0, 0, 0, 0.999993, 0, 7, -765.969)
-progress = 765.97
+transform = Transform3D(0.999995, 0, 0, 0, 0.9999, 0, 0, 0, 0.999906, 0, 7, -809.552)
+progress = 809.552
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
 fov = 95.0

@@ -6,16 +6,16 @@ var anim_methods := {}
 
 func _ready():
 	for method_info in deep_node.get_method_list():
-		var name = method_info.name
-		if name.begins_with("anim_") and deep_node.has_method(name):
-			anim_methods[name] = {
-				"callable": Callable(deep_node, name),
+		var method_name = method_info.name
+		if method_name.begins_with("anim_") and deep_node.has_method(method_name):
+			anim_methods[method_name] = {
+				"callable": Callable(deep_node, method_name),
 				"argument_count": method_info.args.size(),
 				"argument_names": method_info.args
 			}
 
-func call_anim(name: String, args: Array = []):
-	var full_name = name
+func call_anim(method_name: String, args: Array = []):
+	var full_name = method_name
 	if full_name in anim_methods:
 		return anim_methods[full_name]["callable"].callv(args)
 	else:
@@ -23,10 +23,10 @@ func call_anim(name: String, args: Array = []):
 
 func list_anim_methods() -> Array:
 	var methods = []
-	for name in anim_methods.keys():
-		var info = anim_methods[name]
+	for method_name in anim_methods.keys():
+		var info = anim_methods[method_name]
 		methods.append({
-			"name": name,
+			"name": method_name,
 			"argument_count": info.argument_count,
 			"argument_names": info.argument_names
 		})
