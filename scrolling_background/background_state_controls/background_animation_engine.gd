@@ -11,7 +11,9 @@ var curves = {
 	"ramp_from_150_to_100": preload("res://scrolling_background/acceleration_curves/ramp_from_150_to_100.tres"),
 	"ramp_from_100_to_1000": preload("res://scrolling_background/acceleration_curves/ramp_from_100_to_1000.tres"),
 	"ramp_from_1000_to_100": preload("res://scrolling_background/acceleration_curves/ramp_from_1000_to_100.tres"),
-	"ramp_from_100_to_50": preload("res://scrolling_background/acceleration_curves/ramp_from_100_to_50.tres")
+	"ramp_from_100_to_50": preload("res://scrolling_background/acceleration_curves/ramp_from_100_to_50.tres"),
+	"veryslow": preload("res://scrolling_background/acceleration_curves/veryslow.tres"),
+	"veryslow_to_100": preload("res://scrolling_background/acceleration_curves/veryslow_to_100.tres")
 }
 
 var current_background: Background
@@ -56,3 +58,11 @@ func anim_hyperspeed():
 	_add_animation_to_queue("ramp_from_1000_to_100", 2.3)
 	_add_animation_to_queue("ramp_from_100_to_50", 1)
 	_add_animation_to_queue("50", 0.0)
+	
+func anim_mainmenu_speedup():
+	animation_queue.pop_front()
+	_add_animation_to_queue("veryslow_to_100", 5.0)
+	_add_animation_to_queue("100", 0.0)
+	
+func anim_mainmenu_slow():
+	_add_animation_to_queue("veryslow", 0.0)

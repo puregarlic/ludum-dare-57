@@ -40,5 +40,5 @@ func shake_and_tint(severity: float):
 		var intensity = original_light_energy * lerp(1.0, max_light_intensity_multiplier, shake_intensity)
 		light_node.light_energy = intensity
 
-func _process(delta):
+func _process(_delta):
 	shake_and_tint(severity)
