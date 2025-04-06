@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://brxsfgcuxkka"]
+[gd_scene load_steps=10 format=3 uid="uid://brxsfgcuxkka"]
 
 [ext_resource type="Script" uid="uid://cew62j03eotca" path="res://menu/main_menu.gd" id="1_f5okj"]
 [ext_resource type="FontFile" uid="uid://bqvlxm3er5vim" path="res://dialogue/fonts/YatraOne-Regular.ttf" id="3_0tw43"]
 [ext_resource type="Texture2D" uid="uid://ba2to36d1xy5e" path="res://menu/menutext.png" id="3_o5w3e"]
-[ext_resource type="Script" uid="uid://bk4qx5rkfvyw1" path="res://menu/bouncy_menu_sprite.gd" id="4_1x3cv"]
-[ext_resource type="Script" uid="uid://c2n3yu3wfwojq" path="res://menu/blinky.gd" id="4_youj7"]
-[ext_resource type="PackedScene" uid="uid://2dk5c86dnip3" path="res://speaker_animation/speaker_animation.tscn" id="5_jc45y"]
+[ext_resource type="Script" path="res://menu/bouncy_menu_sprite.gd" id="4_1x3cv"]
+[ext_resource type="Script" path="res://menu/blinky.gd" id="4_youj7"]
+[ext_resource type="SpriteFrames" uid="uid://bycmt6anjpi71" path="res://speaker_animation/pius.tres" id="6_youj7"]
 [ext_resource type="SpriteFrames" uid="uid://c0g1i2bdfvny6" path="res://speaker_animation/caesar.tres" id="7_0tw43"]
+[ext_resource type="Script" uid="uid://dyu5v1aolugg3" path="res://speaker_animation/speaker_animation.gd" id="7_l5uyn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_youj7"]
 font = ExtResource("3_0tw43")
@@ -57,10 +58,13 @@ viewport_x_div = 2.8
 viewport_y_div = 1.8
 x_offset = -400.0
 
-[node name="Pius" parent="PiusBounceTarget" instance=ExtResource("5_jc45y")]
+[node name="Pius" type="AnimatedSprite2D" parent="PiusBounceTarget"]
 scale = Vector2(0.4, 0.4)
-frame_progress = 0.462187
-script = null
+sprite_frames = ExtResource("6_youj7")
+animation = &"idle"
+frame_progress = 0.618217
+script = ExtResource("7_l5uyn")
+metadata/_custom_type_script = "uid://dyu5v1aolugg3"
 
 [node name="CaesarBounceTarget" type="Node2D" parent="."]
 script = ExtResource("4_1x3cv")
@@ -68,7 +72,11 @@ viewport_x_div = 1.55
 viewport_y_div = 1.4
 x_offset = 400.0
 
-[node name="Caesar" parent="CaesarBounceTarget" instance=ExtResource("5_jc45y")]
+[node name="Caesar" type="AnimatedSprite2D" parent="CaesarBounceTarget"]
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("7_0tw43")
-script = null
+animation = &"idle"
+frame_progress = 0.903276
+script = ExtResource("7_l5uyn")
+philosopher = 1
+metadata/_custom_type_script = "uid://dyu5v1aolugg3"
