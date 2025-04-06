@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cngn8tgxgpeho"]
+[gd_scene load_steps=5 format=3 uid="uid://cngn8tgxgpeho"]
 
 [ext_resource type="PackedScene" uid="uid://6pa8wfua8j4d" path="res://scrolling_background/subviewport/scrolling_background_viewport.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cex833bj7q7rt" path="res://game.gd" id="1_sb48q"]
 [ext_resource type="PackedScene" uid="uid://brxsfgcuxkka" path="res://menu/main_menu.tscn" id="1_u44n3"]
+[ext_resource type="AudioStream" uid="uid://86apej5cp573" path="res://audio/BackgroundMusic.mp3" id="4_sb48q"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_sb48q")
@@ -12,3 +13,8 @@ offset_right = 2560.0
 offset_bottom = 1369.0
 
 [node name="MainMenu" parent="." instance=ExtResource("1_u44n3")]
+
+[node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_sb48q")
+volume_db = -10.0

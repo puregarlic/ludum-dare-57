@@ -11,10 +11,13 @@ func _ready():
 func transition():
 	if current_game_state == GameState.MAIN_MENU:
 		current_game_state = GameState.GAME
+		%BackGroundMusic.play()
 	elif current_game_state == GameState.GAME:
 		current_game_state = GameState.LOSS
+		%BackGroundMusic.stop()
 	elif current_game_state == GameState.LOSS:
 		current_game_state = GameState.GAME
+		%BackGroundMusic.play()
 		
 func _on_main_menu_interacted():
 	transition()
