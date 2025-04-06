@@ -6,13 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://bnspms3q3ky1" path="res://audio/LightbulbDing.wav" id="4_ifm5s"]
 
 [node name="Lightbulb" type="TextureProgressBar"]
-value = 40.0
+scale = Vector2(0.05, 0.05)
+value = 48.0
 fill_mode = 3
 texture_over = ExtResource("3_307wd")
 texture_progress = ExtResource("2_ifm5s")
 script = ExtResource("1_vtrlg")
 enabled = true
-fill = 0.2
+fill = 0.3
 
 [node name="Ding" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
