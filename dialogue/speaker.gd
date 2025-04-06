@@ -13,7 +13,9 @@ class_name Speaker extends Node2D
 @onready var player = %AudioStreamPlayer2D
 @onready var label = %DialogueLabel
 @onready var dialogue_container = %HDialogueContainer
+@onready var panel: PanelContainer = %Panel
 @onready var bust_container = %HBustContainer
+@onready var word_spawn_point = %WordSpawnPoint
 
 enum State {
 	SPEAKING,
@@ -30,8 +32,11 @@ signal finished_speaking
 
 var elapsed = 0.0
 var char_delta = 0.0
+var brainstorm_rate = 1
+var brainstorm_probabability = 0.3
+var brainstorm_force = 900
 var state = State.FINISHED_SPEAKING
-var url_format = "[url={payload}]{word}[/url]"
+var url_format = "[color=coral]{word}[/color]"
 var format = " [font n={font} {args}]{word}[/font]"
 
 func _ready():
@@ -73,6 +78,23 @@ func _process(delta: float) -> void:
 					char_delta += delta
 				
 				elapsed += delta
+		State.THINKING:
+			if elapsed >= brainstorm_rate:
+				elapsed = 0
+				spawn_word(manager.get_weighted_selectable_word(brainstorm_probabability))
+			else:
+				elapsed += delta
+				
+func spawn_word(word: String):
+	var word_obj = SelectableWord.new_word(word, 3, match_font)
+	word_obj.position = word_spawn_point.global_position
+	
+	var angle = manager.rng.randf_range(-0.5, 0.5)
+	var away: Vector2 = Vector2.UP * brainstorm_force
+
+	word_obj.apply_central_impulse(away.rotated(angle))
+	
+	add_child(word_obj)
 
 func format_dialogue(dialogue: Array[Dictionary]):
 	# Insert formatted bbCode text into label
@@ -107,12 +129,17 @@ func speak(dialogue: Array[Dictionary], duration: int = speech_duration):
 	format_dialogue(dialogue)
 	
 	speech_duration = duration
+	panel.visible = true
 	state = State.SPEAKING
+	
+func hide_dialogue():
+	panel.visible = false
 	
 func update_speech(dialogue: Array[Dictionary]):
 	# Update text in place
 	format_dialogue(dialogue)
 
-func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
-	# Word has been selected. Notify manager
-	print(meta)
+func brainstorm(rate: float, probability: float) -> void:
+	state = State.THINKING
+	brainstorm_rate = rate
+	brainstorm_probabability = probability

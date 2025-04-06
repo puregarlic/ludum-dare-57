@@ -33,6 +33,8 @@ theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 125
 
 [node name="Panel" type="PanelContainer" parent="VBoxContainer/HDialogueContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = ExtResource("2_6sq8u")
@@ -80,8 +82,12 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 position = Vector2(0, -70)
 scale = Vector2(0.648148, 0.648148)
-frame_progress = 0.335957
+frame_progress = 0.0512133
 intensity_switch_chance = 0.2
+
+[node name="WordSpawnPoint" type="Node2D" parent="VBoxContainer/HBustContainer/MarginContainer/Control/SpeakerAnimation"]
+unique_name_in_owner = true
+position = Vector2(38.5714, -439.714)
 
 [node name="Control" type="Control" parent="VBoxContainer/HBustContainer"]
 layout_mode = 2
@@ -90,5 +96,3 @@ size_flags_horizontal = 3
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 volume_db = 24.0
-
-[connection signal="meta_clicked" from="VBoxContainer/HDialogueContainer/MarginContainer/Panel/MarginContainer/DialogueLabel" to="." method="_on_rich_text_label_meta_clicked"]
