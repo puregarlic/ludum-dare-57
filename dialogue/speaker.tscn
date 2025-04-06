@@ -82,7 +82,7 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 position = Vector2(0, -70)
 scale = Vector2(0.648148, 0.648148)
-frame_progress = 0.151953
+frame_progress = 0.358462
 intensity_switch_chance = 0.2
 
 [node name="WordSpawnPoint" type="Node2D" parent="VBoxContainer/HBustContainer/MarginContainer/Control/SpeakerAnimation"]
@@ -95,4 +95,4 @@ size_flags_horizontal = 3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-volume_db = 24.0
+volume_db = 20.0

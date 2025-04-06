@@ -14,12 +14,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4v37u")
 
 [node name="Label" type="RichTextLabel" parent="."]
-offset_left = -144.0
-offset_top = -32.0
-offset_right = 144.0
-offset_bottom = 32.0
-theme_override_font_sizes/normal_font_size = 32
+offset_left = -214.0
+offset_top = -62.0
+offset_right = 227.0
+offset_bottom = 58.0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 48
 text = "Testing"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 

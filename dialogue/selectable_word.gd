@@ -4,6 +4,8 @@ class_name SelectableWord extends RigidBody2D
 @onready var label: RichTextLabel = $Label
 @onready var timer: Timer = $Timer
 
+signal clicked
+
 const scene: PackedScene = preload("res://dialogue/selectable_word.tscn")
 const word_format = "[font n={font}]{word}[/font]"
 
@@ -15,6 +17,7 @@ func _ready() -> void:
 	label.parse_bbcode(word)
 	timer.wait_time = lifetime
 	timer.start()
+	input_pickable = true
 
 static func new_word(word: String, lifetime: float, font: Font) -> SelectableWord:
 	var word_scene = scene.instantiate()
@@ -26,3 +29,7 @@ static func new_word(word: String, lifetime: float, font: Font) -> SelectableWor
 func _on_timer_timeout() -> void:
 	# Delete self
 	queue_free()
+	
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		emit_signal("clicked", word)

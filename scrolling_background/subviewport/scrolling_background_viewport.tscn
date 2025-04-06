@@ -68,7 +68,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ogc75"]
 shader = SubResource("Shader_ygovm")
-shader_parameter/time = 1616.24
+shader_parameter/time = 157.221
 shader_parameter/glitch_strength = 0.02
 shader_parameter/glitch_band_density = 80.0
 shader_parameter/slice_strength = 0.015

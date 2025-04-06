@@ -94,6 +94,7 @@ func spawn_word(word: String):
 
 	word_obj.apply_central_impulse(away.rotated(angle))
 	
+	word_obj.clicked.connect(_on_word_clicked)
 	add_child(word_obj)
 
 func format_dialogue(dialogue: Array[Dictionary]):
@@ -143,3 +144,7 @@ func brainstorm(rate: float, probability: float) -> void:
 	state = State.THINKING
 	brainstorm_rate = rate
 	brainstorm_probabability = probability
+
+func _on_word_clicked(word: String):
+	print("CLICKED: ", word)
+	pass
