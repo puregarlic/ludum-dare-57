@@ -1,4 +1,4 @@
-[gd_resource type="Curve" format=3 uid="uid://c4ku4qojh3jey"]
+[gd_resource type="Curve" load_steps=0 format=3 uid="uid://c4ku4qojh3jey"]
 
 [resource]
 _limits = [1.0, 10.0, 0.0, 1.0]

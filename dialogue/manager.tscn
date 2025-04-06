@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmj35dojicrif"]
+
+[ext_resource type="Script" uid="uid://cirhqvdf8mvny" path="res://dialogue/manager.gd" id="1_yeusm"]
+[ext_resource type="PackedScene" uid="uid://dh2l1mqutpnq1" path="res://dialogue/speaker.tscn" id="2_khaah"]
+[ext_resource type="FontFile" uid="uid://dvxlea1bmc6k0" path="res://dialogue/fonts/Kalam-Regular.ttf" id="3_v4u3h"]
+[ext_resource type="FontFile" uid="uid://c480g2hnvtq3g" path="res://dialogue/fonts/RedactedScript-Regular.ttf" id="4_vkomn"]
+[ext_resource type="FontFile" uid="uid://bqvlxm3er5vim" path="res://dialogue/fonts/YatraOne-Regular.ttf" id="5_n0hh8"]
+[ext_resource type="FontFile" uid="uid://cf12wtyfvl616" path="res://dialogue/fonts/FlowBlock-Regular.ttf" id="6_wbuqm"]
+
+[node name="DialogueManager" type="Node2D"]
+script = ExtResource("1_yeusm")
+
+[node name="SpeakerLeft" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("2_khaah")]
+match_font = ExtResource("3_v4u3h")
+match_font_args = "s=20"
+block_font = ExtResource("4_vkomn")
+block_font_args = "s=30"
+manager = NodePath("..")
+
+[node name="SpeakerRight" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("2_khaah")]
+match_font = ExtResource("5_n0hh8")
+match_font_args = "s=18"
+block_font = ExtResource("6_wbuqm")
+block_font_args = "s=20"
+manager = NodePath("..")
+alignment = 1

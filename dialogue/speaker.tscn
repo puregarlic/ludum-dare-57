@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh2l1mqutpnq1"]
+
+[ext_resource type="Script" uid="uid://dcjn6jx5b6sto" path="res://dialogue/speaker.gd" id="1_wh5ik"]
+
+[node name="Speaker" type="Node2D"]
+script = ExtResource("1_wh5ik")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "arstarstastastastarstarstarst"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+meta_underlined = false
+hint_underlined = false
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[connection signal="meta_clicked" from="VBoxContainer/HBoxContainer/MarginContainer/DialogueLabel" to="." method="_on_rich_text_label_meta_clicked"]
