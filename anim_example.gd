@@ -9,7 +9,6 @@ func _ready():
 	pass
 
 func _process(delta: float) -> void:
-	# Original behavior
 	if delta_acc >= 0.0:
 		delta_acc += delta
 	
