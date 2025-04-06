@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c35pmbuob0hdx"
+path="res://.godot/imported/LowRegSpeech06.wav-e7de74eb29d5ca18b4e9786899dadd85.sample"
+
+[deps]
+
+source_file="res://audio/Lower Register Speech/LowRegSpeech06.wav"
+dest_files=["res://.godot/imported/LowRegSpeech06.wav-e7de74eb29d5ca18b4e9786899dadd85.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

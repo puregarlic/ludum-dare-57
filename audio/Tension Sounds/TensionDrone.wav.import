@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rjr2smgnkajt"
+path="res://.godot/imported/TensionDrone.wav-7cb2a3bda06b8ca2abb906d0c84a50d6.sample"
+
+[deps]
+
+source_file="res://audio/Tension Sounds/TensionDrone.wav"
+dest_files=["res://.godot/imported/TensionDrone.wav-7cb2a3bda06b8ca2abb906d0c84a50d6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

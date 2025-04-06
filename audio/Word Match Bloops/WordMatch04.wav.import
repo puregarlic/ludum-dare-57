@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d305fyy7gjwlc"
+path="res://.godot/imported/WordMatch04.wav-22a56e2018f65056c9ebe3c964425ef8.sample"
+
+[deps]
+
+source_file="res://audio/Word Match Bloops/WordMatch04.wav"
+dest_files=["res://.godot/imported/WordMatch04.wav-22a56e2018f65056c9ebe3c964425ef8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

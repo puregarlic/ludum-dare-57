@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgmsf3rq10klt"
+path="res://.godot/imported/LowRegSpeech10.wav-9ceab4bb639ee6c8f5a5c0100e3148e9.sample"
+
+[deps]
+
+source_file="res://audio/Lower Register Speech/LowRegSpeech10.wav"
+dest_files=["res://.godot/imported/LowRegSpeech10.wav-9ceab4bb639ee6c8f5a5c0100e3148e9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

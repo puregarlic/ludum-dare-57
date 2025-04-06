@@ -18,7 +18,7 @@ var words_length: int
 var rng = RandomNumberGenerator.new()
 
 var state = State.SPEAKING
-var speaker = Speaker.LEFT
+@export var speaker = Speaker.LEFT
 
 var current_dialogue: Array[Dictionary]
 var current_selectable: Array[Dictionary]

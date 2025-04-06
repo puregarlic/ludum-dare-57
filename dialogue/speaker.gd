@@ -5,9 +5,11 @@ class_name Speaker extends Node2D
 @export var block_font: Font
 @export var block_font_args: String
 @export var manager: DialogueManager
-@export var speech_duration = 5.0
+@export var speech_duration = 10.0
 @export var alignment: Alignment
+@export var voice_map: LetterAudioMap
 
+@onready var player = %AudioStreamPlayer2D
 @onready var label = %DialogueLabel
 @onready var container = %HBoxContainer
 
@@ -46,10 +48,16 @@ func _process(delta: float) -> void:
 				elapsed = 0
 				finished_speaking.emit()
 			else:
-				var cps = speech_duration / label.get_total_character_count()
+				var cps = speech_duration / float(label.get_total_character_count())
 				
 				if char_delta >= cps:
 					label.visible_characters += 1
+					var c = label.get_parsed_text()[label.visible_characters - 1]
+				
+					if c != "" and c != " ":
+						player.set_stream(voice_map[c])
+						player.play()
+					
 					char_delta = 0
 				else:
 					char_delta += delta

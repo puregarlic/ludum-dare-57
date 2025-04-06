@@ -1,26 +1,141 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmj35dojicrif"]
+[gd_scene load_steps=62 format=3 uid="uid://cmj35dojicrif"]
 
 [ext_resource type="Script" uid="uid://cirhqvdf8mvny" path="res://dialogue/manager.gd" id="1_yeusm"]
 [ext_resource type="PackedScene" uid="uid://dh2l1mqutpnq1" path="res://dialogue/speaker.tscn" id="2_khaah"]
 [ext_resource type="FontFile" uid="uid://dvxlea1bmc6k0" path="res://dialogue/fonts/Kalam-Regular.ttf" id="3_v4u3h"]
 [ext_resource type="FontFile" uid="uid://c480g2hnvtq3g" path="res://dialogue/fonts/RedactedScript-Regular.ttf" id="4_vkomn"]
+[ext_resource type="AudioStream" uid="uid://pjwho1vn604q" path="res://audio/Upper Register Speech/UpperRegSpeech01.wav" id="5_6jdo5"]
+[ext_resource type="AudioStream" uid="uid://dwfrlgh7dbxmr" path="res://audio/Lower Register Speech/LowRegSpeech01.wav" id="5_lg1rw"]
 [ext_resource type="FontFile" uid="uid://bqvlxm3er5vim" path="res://dialogue/fonts/YatraOne-Regular.ttf" id="5_n0hh8"]
+[ext_resource type="AudioStream" uid="uid://cxh7lkvt1gsyf" path="res://audio/Lower Register Speech/LowRegSpeech02.wav" id="6_a3nsd"]
+[ext_resource type="AudioStream" uid="uid://bsmdficami601" path="res://audio/Upper Register Speech/UpperRegSpeech02.wav" id="6_nv5ej"]
 [ext_resource type="FontFile" uid="uid://cf12wtyfvl616" path="res://dialogue/fonts/FlowBlock-Regular.ttf" id="6_wbuqm"]
+[ext_resource type="AudioStream" uid="uid://buhtun6l5heuu" path="res://audio/Lower Register Speech/LowRegSpeech03.wav" id="7_amu0h"]
+[ext_resource type="AudioStream" uid="uid://0f1jvyrowgho" path="res://audio/Upper Register Speech/UpperRegSpeech03.wav" id="7_miywn"]
+[ext_resource type="AudioStream" uid="uid://wyj87a04k402" path="res://audio/Upper Register Speech/UpperRegSpeech04.wav" id="8_b1dps"]
+[ext_resource type="AudioStream" uid="uid://bikrxnn82ahn2" path="res://audio/Lower Register Speech/LowRegSpeech04.wav" id="8_rcs47"]
+[ext_resource type="AudioStream" uid="uid://bwq6ykernhg26" path="res://audio/Upper Register Speech/UpperRegSpeech05.wav" id="9_a0yft"]
+[ext_resource type="AudioStream" uid="uid://hnx2g3u88yss" path="res://audio/Lower Register Speech/LowRegSpeech05.wav" id="9_yx6j6"]
+[ext_resource type="AudioStream" uid="uid://c35pmbuob0hdx" path="res://audio/Lower Register Speech/LowRegSpeech06.wav" id="10_5ui4i"]
+[ext_resource type="AudioStream" uid="uid://dgyyssw1ks4dh" path="res://audio/Upper Register Speech/UpperRegSpeech06.wav" id="10_s1mkt"]
+[ext_resource type="AudioStream" uid="uid://cy30o7cljax8s" path="res://audio/Upper Register Speech/UpperRegSpeech07.wav" id="11_b1vdc"]
+[ext_resource type="AudioStream" uid="uid://cjajifobyitng" path="res://audio/Lower Register Speech/LowRegSpeech07.wav" id="11_ll1ew"]
+[ext_resource type="AudioStream" uid="uid://dctgqe63v6qv1" path="res://audio/Lower Register Speech/LowRegSpeech08.wav" id="12_dbkac"]
+[ext_resource type="AudioStream" uid="uid://coy2kqvxwcbcw" path="res://audio/Upper Register Speech/UpperRegSpeech08.wav" id="12_x6hj5"]
+[ext_resource type="AudioStream" uid="uid://bpfeswm37g2oj" path="res://audio/Lower Register Speech/LowRegSpeech09.wav" id="13_gax3y"]
+[ext_resource type="AudioStream" uid="uid://dseu61qbt7xfm" path="res://audio/Upper Register Speech/UpperRegSpeech09.wav" id="13_twds4"]
+[ext_resource type="AudioStream" uid="uid://ce3binqn30yrj" path="res://audio/Upper Register Speech/UpperRegSpeech10.wav" id="14_ne04o"]
+[ext_resource type="AudioStream" uid="uid://bgmsf3rq10klt" path="res://audio/Lower Register Speech/LowRegSpeech10.wav" id="14_uh33o"]
+[ext_resource type="AudioStream" uid="uid://bj2unwqmofr0k" path="res://audio/Lower Register Speech/LowRegSpeech11.wav" id="15_5kst1"]
+[ext_resource type="AudioStream" uid="uid://cxbljabrj2amn" path="res://audio/Upper Register Speech/UpperRegSpeech11.wav" id="15_ub4l2"]
+[ext_resource type="AudioStream" uid="uid://bhtqxehdm6o5k" path="res://audio/Upper Register Speech/UpperRegSpeech12.wav" id="16_hv5h1"]
+[ext_resource type="AudioStream" uid="uid://c3otgkt3q2u2v" path="res://audio/Lower Register Speech/LowRegSpeech12.wav" id="16_ox6vw"]
+[ext_resource type="AudioStream" uid="uid://b10ucqjwc8h0k" path="res://audio/Lower Register Speech/LowRegSpeech13.wav" id="17_e0t86"]
+[ext_resource type="AudioStream" uid="uid://ptjyagr74dbb" path="res://audio/Upper Register Speech/UpperRegSpeech13.wav" id="17_m7y5u"]
+[ext_resource type="AudioStream" uid="uid://4n21vgcmgbir" path="res://audio/Lower Register Speech/LowRegSpeech14.wav" id="18_ht25c"]
+[ext_resource type="AudioStream" uid="uid://y2lssxcvsamt" path="res://audio/Upper Register Speech/UpperRegSpeech14.wav" id="18_rg4dx"]
+[ext_resource type="AudioStream" uid="uid://dloba1c8mijrt" path="res://audio/Upper Register Speech/UpperRegSpeech15.wav" id="19_ftuq2"]
+[ext_resource type="AudioStream" uid="uid://cucjm700eboku" path="res://audio/Lower Register Speech/LowRegSpeech15.wav" id="19_jnt3k"]
+[ext_resource type="AudioStream" uid="uid://07ktqn1aw7ci" path="res://audio/Lower Register Speech/LowRegSpeech16.wav" id="20_cphqc"]
+[ext_resource type="AudioStream" uid="uid://cquvte5kunya4" path="res://audio/Upper Register Speech/UpperRegSpeech16.wav" id="20_x036e"]
+[ext_resource type="AudioStream" uid="uid://b3jwxdjul0joh" path="res://audio/Lower Register Speech/LowRegSpeech17.wav" id="21_dgdkd"]
+[ext_resource type="AudioStream" uid="uid://b3c2sipgsnqgf" path="res://audio/Upper Register Speech/UpperRegSpeech17.wav" id="21_dpkak"]
+[ext_resource type="AudioStream" uid="uid://dx07es6gwgs28" path="res://audio/Lower Register Speech/LowRegSpeech18.wav" id="22_gw1wb"]
+[ext_resource type="AudioStream" uid="uid://w3ojg0x5rvgl" path="res://audio/Upper Register Speech/UpperRegSpeech18.wav" id="22_j24in"]
+[ext_resource type="AudioStream" uid="uid://dfmcd8fmh3qjq" path="res://audio/Lower Register Speech/LowRegSpeech19.wav" id="23_lyj8i"]
+[ext_resource type="AudioStream" uid="uid://0vcx4l6dj255" path="res://audio/Upper Register Speech/UpperRegSpeech19.wav" id="23_t8u65"]
+[ext_resource type="Script" uid="uid://b5bhvu5wgak3e" path="res://dialogue/letter_audio.gd" id="24_h77i0"]
+[ext_resource type="AudioStream" uid="uid://d3edca1fgspqr" path="res://audio/Upper Register Speech/UpperRegSpeech20.wav" id="25_cn3pa"]
+[ext_resource type="AudioStream" uid="uid://cq8o7dvems5s3" path="res://audio/Lower Register Speech/LowRegSpeech20.wav" id="25_dv6ek"]
+[ext_resource type="AudioStream" uid="uid://c0ydbffsl8v1g" path="res://audio/Upper Register Speech/UpperRegSpeech21.wav" id="26_kh2k6"]
+[ext_resource type="AudioStream" uid="uid://d1ouhpj7fc5sp" path="res://audio/Lower Register Speech/LowRegSpeech21.wav" id="26_sh36a"]
+[ext_resource type="AudioStream" uid="uid://b3s0ply4qr0ds" path="res://audio/Lower Register Speech/LowRegSpeech22.wav" id="27_0w4p7"]
+[ext_resource type="AudioStream" uid="uid://bveye2abmarqy" path="res://audio/Upper Register Speech/UpperRegSpeech22.wav" id="27_78gl3"]
+[ext_resource type="AudioStream" uid="uid://dv5olr3kahmlb" path="res://audio/Lower Register Speech/LowRegSpeech23.wav" id="28_0oyps"]
+[ext_resource type="AudioStream" uid="uid://bxgoc1o6lsg01" path="res://audio/Upper Register Speech/UpperRegSpeech23.wav" id="28_myuso"]
+[ext_resource type="AudioStream" uid="uid://ot2g46vsah8w" path="res://audio/Lower Register Speech/LowRegSpeech24.wav" id="29_kc77o"]
+[ext_resource type="AudioStream" uid="uid://djp24lij1g41p" path="res://audio/Upper Register Speech/UpperRegSpeech24.wav" id="29_yf34b"]
+[ext_resource type="AudioStream" uid="uid://c8rkgi07hnb7v" path="res://audio/Lower Register Speech/LowRegSpeech25.wav" id="30_c4clr"]
+[ext_resource type="AudioStream" uid="uid://c6o2gxo4wwcw4" path="res://audio/Upper Register Speech/UpperRegSpeech25.wav" id="30_pttos"]
+[ext_resource type="AudioStream" uid="uid://bqltuonwta0dl" path="res://audio/Lower Register Speech/LowRegSpeech26.wav" id="31_36b5t"]
+[ext_resource type="AudioStream" uid="uid://cjtly5kanjh7q" path="res://audio/Upper Register Speech/UpperRegSpeech26.wav" id="31_lg1rw"]
+
+[sub_resource type="Resource" id="Resource_uma4v"]
+script = ExtResource("24_h77i0")
+a = ExtResource("5_lg1rw")
+b = ExtResource("6_a3nsd")
+c = ExtResource("7_amu0h")
+d = ExtResource("8_rcs47")
+e = ExtResource("9_yx6j6")
+f = ExtResource("10_5ui4i")
+g = ExtResource("11_ll1ew")
+h = ExtResource("12_dbkac")
+i = ExtResource("13_gax3y")
+j = ExtResource("14_uh33o")
+k = ExtResource("15_5kst1")
+l = ExtResource("16_ox6vw")
+m = ExtResource("17_e0t86")
+n = ExtResource("18_ht25c")
+o = ExtResource("19_jnt3k")
+p = ExtResource("20_cphqc")
+q = ExtResource("21_dgdkd")
+r = ExtResource("22_gw1wb")
+s = ExtResource("23_lyj8i")
+t = ExtResource("25_dv6ek")
+u = ExtResource("26_sh36a")
+v = ExtResource("27_0w4p7")
+w = ExtResource("28_0oyps")
+x = ExtResource("29_kc77o")
+y = ExtResource("30_c4clr")
+z = ExtResource("31_36b5t")
+metadata/_custom_type_script = "uid://b5bhvu5wgak3e"
+
+[sub_resource type="Resource" id="Resource_a3nsd"]
+script = ExtResource("24_h77i0")
+a = ExtResource("5_6jdo5")
+b = ExtResource("6_nv5ej")
+c = ExtResource("7_miywn")
+d = ExtResource("8_b1dps")
+e = ExtResource("9_a0yft")
+f = ExtResource("10_s1mkt")
+g = ExtResource("11_b1vdc")
+h = ExtResource("12_x6hj5")
+i = ExtResource("13_twds4")
+j = ExtResource("14_ne04o")
+k = ExtResource("15_ub4l2")
+l = ExtResource("16_hv5h1")
+m = ExtResource("17_m7y5u")
+n = ExtResource("18_rg4dx")
+o = ExtResource("19_ftuq2")
+p = ExtResource("20_x036e")
+q = ExtResource("21_dpkak")
+r = ExtResource("22_j24in")
+s = ExtResource("23_t8u65")
+t = ExtResource("25_cn3pa")
+u = ExtResource("26_kh2k6")
+v = ExtResource("27_78gl3")
+w = ExtResource("28_myuso")
+x = ExtResource("29_yf34b")
+y = ExtResource("30_pttos")
+z = ExtResource("31_lg1rw")
+metadata/_custom_type_script = "uid://b5bhvu5wgak3e"
 
 [node name="DialogueManager" type="Node2D"]
 script = ExtResource("1_yeusm")
 
 [node name="SpeakerLeft" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("2_khaah")]
-match_font = ExtResource("3_v4u3h")
-match_font_args = "s=20"
-block_font = ExtResource("4_vkomn")
-block_font_args = "s=30"
+match_font = ExtResource("5_n0hh8")
+match_font_args = "s=30 bot=30"
+block_font = ExtResource("6_wbuqm")
+block_font_args = "s=38 sp=40 top=10"
 manager = NodePath("..")
+voice_map = SubResource("Resource_uma4v")
 
 [node name="SpeakerRight" parent="." node_paths=PackedStringArray("manager") instance=ExtResource("2_khaah")]
-match_font = ExtResource("5_n0hh8")
-match_font_args = "s=18"
-block_font = ExtResource("6_wbuqm")
-block_font_args = "s=20"
+match_font = ExtResource("3_v4u3h")
+match_font_args = "s=30"
+block_font = ExtResource("4_vkomn")
+block_font_args = "s=38"
 manager = NodePath("..")
 alignment = 1
+voice_map = SubResource("Resource_a3nsd")
