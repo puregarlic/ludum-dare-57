@@ -89,3 +89,11 @@ func load_philosopher():
 			sprite_frames = pius_resource
 		Philosopher.CAESAR:
 			sprite_frames = caesar_resource
+	
+	match current_state:
+		SpeakerAnimationStates.MATCHING:
+			matching()
+		SpeakerAnimationStates.NERVOUS:
+			nervous()
+		SpeakerAnimationStates.TALK_IDLE, SpeakerAnimationStates.TALK:
+			prepare_talk()
