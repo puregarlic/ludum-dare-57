@@ -58,11 +58,11 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.0646853
+rotation = 0.0520537
 scale = Vector2(0.0712521, 0.0712521)
 mouse_filter = 2
 value = 35.0
-tint_progress = Color(0.606961, 0.556121, 0.553875, 1)
+tint_progress = Color(0.820734, 0.360832, 0.340517, 1)
 time_left = 0.345
 
 [node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
@@ -159,7 +159,7 @@ mouse_filter = 2
 unique_name_in_owner = true
 position = Vector2(252, 208)
 scale = Vector2(0.54, 0.54)
-frame_progress = 0.572377
+frame_progress = 0.321109
 intensity_switch_chance = 0.2
 
 [node name="WordSpawnPoint" type="Node2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]

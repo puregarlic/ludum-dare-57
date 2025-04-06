@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0kpb6spamnla"]
+
+[ext_resource type="Script" uid="uid://d3tm50cq8hjgq" path="res://menu/score_summary.gd" id="1_bhxpg"]
+[ext_resource type="FontFile" uid="uid://dvxlea1bmc6k0" path="res://dialogue/fonts/Kalam-Regular.ttf" id="1_xyvbl"]
+[ext_resource type="PackedScene" uid="uid://cngn8tgxgpeho" path="res://Game.tscn" id="2_bivkw"]
+[ext_resource type="FontFile" uid="uid://bqvlxm3er5vim" path="res://dialogue/fonts/YatraOne-Regular.ttf" id="2_mvfw5"]
+[ext_resource type="AudioStream" uid="uid://tv374r64ehp7" path="res://menu/ScoreBoom.mp3" id="3_r1h0k"]
+[ext_resource type="AudioStream" uid="uid://tcsjg06apv5b" path="res://menu/GradeBoom.mp3" id="4_ghgmg"]
+
+[node name="ScoreSummary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bhxpg")
+next_scene = ExtResource("2_bivkw")
+score_sound = ExtResource("3_r1h0k")
+rank_sound = ExtResource("4_ghgmg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="DialoguesContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="DialoguesLabel" type="Label" parent="MarginContainer/VBoxContainer/DialoguesContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/outline_size = 60
+theme_override_constants/shadow_outline_size = 60
+theme_override_fonts/font = ExtResource("1_xyvbl")
+theme_override_font_sizes/font_size = 96
+text = "Total dialogues completed:"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/DialoguesContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="DialoguesValue" type="Label" parent="MarginContainer/VBoxContainer/DialoguesContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.268128, 0.791217, 1)
+theme_override_constants/outline_size = 60
+theme_override_constants/shadow_outline_size = 60
+theme_override_fonts/font = ExtResource("1_xyvbl")
+theme_override_font_sizes/font_size = 96
+
+[node name="FathomsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="FathomsLabel" type="Label" parent="MarginContainer/VBoxContainer/FathomsContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 60
+theme_override_constants/shadow_outline_size = 60
+theme_override_fonts/font = ExtResource("1_xyvbl")
+theme_override_font_sizes/font_size = 96
+text = "Total fathoms travelled:"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/FathomsContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="FathomsValue" type="Label" parent="MarginContainer/VBoxContainer/FathomsContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.474968, 0.956393, 1)
+theme_override_constants/outline_size = 60
+theme_override_constants/shadow_outline_size = 60
+theme_override_fonts/font = ExtResource("1_xyvbl")
+theme_override_font_sizes/font_size = 96
+
+[node name="GradeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="GradeLabel" type="Label" parent="MarginContainer/VBoxContainer/GradeContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 60
+theme_override_constants/shadow_outline_size = 60
+theme_override_fonts/font = ExtResource("1_xyvbl")
+theme_override_font_sizes/font_size = 96
+text = "Rank:"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/GradeContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="GradeValue" type="Label" parent="MarginContainer/VBoxContainer/GradeContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.84, 0.75222, 0.3612, 1)
+theme_override_constants/outline_size = 60
+theme_override_constants/shadow_outline_size = 60
+theme_override_fonts/font = ExtResource("2_mvfw5")
+theme_override_font_sizes/font_size = 96
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
