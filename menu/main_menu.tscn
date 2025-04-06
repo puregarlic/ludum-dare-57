@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://brxsfgcuxkka"]
+
+[ext_resource type="PackedScene" uid="uid://6pa8wfua8j4d" path="res://scrolling_background/subviewport/scrolling_background_viewport.tscn" id="1_chmv6"]
+[ext_resource type="Script" uid="uid://cew62j03eotca" path="res://menu/main_menu.gd" id="1_f5okj"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_f5okj")
+
+[node name="ScrollingBackgroundViewport" parent="." instance=ExtResource("1_chmv6")]
+offset_right = 2560.0
+offset_bottom = 1369.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 163.0
+offset_bottom = 28.0
+text = "Chthonic Cacophony"
