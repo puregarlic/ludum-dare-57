@@ -44,7 +44,7 @@
 [ext_resource type="AudioStream" uid="uid://w3ojg0x5rvgl" path="res://audio/Upper Register Speech/UpperRegSpeech18.wav" id="22_j24in"]
 [ext_resource type="AudioStream" uid="uid://dfmcd8fmh3qjq" path="res://audio/Lower Register Speech/LowRegSpeech19.wav" id="23_lyj8i"]
 [ext_resource type="AudioStream" uid="uid://0vcx4l6dj255" path="res://audio/Upper Register Speech/UpperRegSpeech19.wav" id="23_t8u65"]
-[ext_resource type="Script" uid="uid://b5bhvu5wgak3e" path="res://dialogue/letter_audio.gd" id="24_h77i0"]
+[ext_resource type="Script" path="res://dialogue/letter_audio.gd" id="24_h77i0"]
 [ext_resource type="AudioStream" uid="uid://d3edca1fgspqr" path="res://audio/Upper Register Speech/UpperRegSpeech20.wav" id="25_cn3pa"]
 [ext_resource type="AudioStream" uid="uid://cq8o7dvems5s3" path="res://audio/Lower Register Speech/LowRegSpeech20.wav" id="25_dv6ek"]
 [ext_resource type="AudioStream" uid="uid://c0ydbffsl8v1g" path="res://audio/Upper Register Speech/UpperRegSpeech21.wav" id="26_kh2k6"]
