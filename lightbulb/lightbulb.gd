@@ -9,7 +9,9 @@ extends TextureProgressBar
 @export var fill: float = 0.0:
 	set(value):
 		fill = value
-		self.value = fill * self.max_value
+		self.value = remap(fill, 0.0, 1.0, 25.0, 100.0)
+		if fill != 1.0:
+			%Ding.play()
 
 func _ready():
 	pass

@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw3gvmb5y0iho"]
+[gd_scene load_steps=5 format=3 uid="uid://dw3gvmb5y0iho"]
 
 [ext_resource type="Script" uid="uid://65ia8pj3umeg" path="res://lightbulb/lightbulb.gd" id="1_vtrlg"]
 [ext_resource type="Texture2D" uid="uid://ddlt3yp3xpilf" path="res://lightbulb/lightbulb_fill.png" id="2_ifm5s"]
 [ext_resource type="Texture2D" uid="uid://dp67agx63sioy" path="res://lightbulb/lightbulb.png" id="3_307wd"]
+[ext_resource type="AudioStream" uid="uid://bnspms3q3ky1" path="res://audio/LightbulbDing.wav" id="4_ifm5s"]
 
 [node name="Lightbulb" type="TextureProgressBar"]
+value = 40.0
 fill_mode = 3
 texture_over = ExtResource("3_307wd")
 texture_progress = ExtResource("2_ifm5s")
 script = ExtResource("1_vtrlg")
 enabled = true
+fill = 0.2
+
+[node name="Ding" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ifm5s")
