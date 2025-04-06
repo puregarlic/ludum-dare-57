@@ -1,7 +1,7 @@
 class_name DialogueManager extends Node2D
 
-@onready var speakerLeft = $"SpeakerLeft"
-@onready var speakerRight = $"SpeakerRight"
+@onready var speakerLeft: Speaker = $"SpeakerLeft"
+@onready var speakerRight: Speaker = $"SpeakerRight"
 
 enum State {
 	SPEAKING,
@@ -22,7 +22,6 @@ var state = State.SPEAKING
 
 var current_dialogue: Array[Dictionary]
 var current_selectable: Array[Dictionary]
-var selected_word: String
 var threshold: float
 
 func _ready():
@@ -51,7 +50,7 @@ func next_dialogue(length: int, ratio: float):
 		var rand = rng.randi_range(0, words_length - 1)
 		var word = {
 			"index": n,
-			"word": words[rand]
+			"word": words[rand],
 		}
 		
 		if indices.has(n):
@@ -81,19 +80,36 @@ func speak_dialogue():
 	match speaker:
 		Speaker.LEFT:
 			speakerLeft.speak(current_dialogue)
+			speakerRight.hide_dialogue()
 		Speaker.RIGHT:
 			speakerRight.speak(current_dialogue)
+			speakerLeft.hide_dialogue()
 
 func select_word(word: String):
-	if selected_word == "":
-		selected_word = word
-	elif selected_word == word:
-		# Good match
-		selected_word = ""
-	else:
-		# Failed match
-		selected_word = ""
-		print("nope")
+	print("nope")
+
+func get_random_word() -> String:
+		var rand = rng.randi_range(0, words_length - 1)
+		return words[rand]
+		
+func get_random_selectable_word() -> String:
+		var rand = rng.randi_range(0, len(current_selectable) - 1)
+		return current_selectable[rand].word
+
+func get_weighted_selectable_word(weight: float) -> String:
+	var correct_or_not = rng.rand_weighted(PackedFloat32Array([weight, 1]))
+	
+	match correct_or_not:
+		0:
+			return get_random_selectable_word()
+		_:
+			return get_random_word()
 
 func fail():
 	print("you lose")
+
+func _on_speaker_left_finished_speaking() -> void:
+	speakerRight.brainstorm(0.3, 1)
+
+func _on_speaker_right_finished_speaking() -> void:
+	speakerLeft.brainstorm(0.3, 1)

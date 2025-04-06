@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://baanfhnfwclfe"]
+
+[ext_resource type="Script" uid="uid://brh5qe548sa4t" path="res://dialogue/selectable_word.gd" id="1_gqrqj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4v37u"]
+radius = 32.0
+height = 112.0
+
+[node name="SelectableWord" type="RigidBody2D"]
+script = ExtResource("1_gqrqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4v37u")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = -144.0
+offset_top = -32.0
+offset_right = 144.0
+offset_bottom = 32.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Testing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
