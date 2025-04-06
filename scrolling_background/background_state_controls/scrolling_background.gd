@@ -24,6 +24,11 @@ func _instantiate_current_background():
 	self.add_child(current_background)
 	$BackgroundAnimationEngine.set_managed_background(current_state, current_background)
 	
+	# Hacky way to get Globals.BackgroundStates.ROMAN_COLUMN_YARD_TO_BIG_HOLE to transition witout
+	# an external call to transition_to_next()
+	if current_state == Globals.BackgroundStates.ROMAN_COLUMN_YARD_TO_BIG_HOLE:
+		transition_to_next()
+
 func transition_to_next():
 	target_state = _get_next_state(current_state)
 	if target_state != Globals.BackgroundStates.NONE:

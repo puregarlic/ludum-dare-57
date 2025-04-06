@@ -36,6 +36,7 @@ func _on_animation_resolved():
 	if len(animation_queue) > 0:
 		current_background.transition_speed_with_curve(curves[animation_queue.front()["name"]], animation_queue.front()["transition_length"])
 
+# Hacky, this shouldn't be centralized here imo
 func _play_initial_animations(state):
 	if state == Globals.BackgroundStates.ROMAN_COLUMN_YARD_TO_BIG_HOLE:
 		anim_hyperspeed()

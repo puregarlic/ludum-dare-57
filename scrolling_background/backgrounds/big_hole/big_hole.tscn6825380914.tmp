@@ -25,17 +25,15 @@ default_curve = ExtResource("2_yp1fm")
 curve = SubResource("Curve3D_sec2o")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -3.14902, 0)
-progress = 3.14923
+transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -18.0543, 0)
+progress = 18.0539
 
-[node name="ShakePivot" type="Node3D" parent="CameraRail/CameraRailFollow3D"]
-
-[node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D/ShakePivot"]
+[node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
 unique_name_in_owner = true
-transform = Transform3D(0.939596, 0.337715, -0.0526904, -0.340614, 0.937974, -0.062058, 0.0284697, 0.0762706, 0.996492, 0, 0, 0)
+transform = Transform3D(-0.638057, 0.769612, -0.0155865, -0.769164, -0.638231, -0.0266477, -0.0304617, -0.00501516, 0.999336, 0, 0, 0)
 fov = 90.0
 script = ExtResource("3_ml2ns")
-light_node_path = NodePath("../../../../Environment/DirectionalLight3D")
+tint_node_path = NodePath("../../../CanvasLayer/ColorRect")
 
 [node name="Environment" type="Node3D" parent="."]
 script = ExtResource("3_3ff7a")
@@ -46,7 +44,6 @@ environment = ExtResource("3_rbmj6")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Environment"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-unique_name_in_owner = true
 transform = Transform3D(-0.707107, -0.579228, 0.40558, 0, 0.573577, 0.819152, -0.707107, 0.579228, -0.40558, 0, 0, 0)
 light_color = Color(0.450312, 0.395974, 0.369428, 1)
 light_energy = 1.3
@@ -167,3 +164,13 @@ skeleton = NodePath("../..")
 
 [node name="CameraSpinner" type="Node3D" parent="."]
 script = ExtResource("6_db8yj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0)

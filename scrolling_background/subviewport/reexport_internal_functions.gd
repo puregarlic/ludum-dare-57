@@ -32,5 +32,12 @@ func list_anim_methods() -> Array:
 		})
 	return methods
 
+func try_call_set_severity(v: float) -> bool:
+	for child in get_tree().get_nodes_in_group("AngeryCamera"):
+		if child is AngeryCamera:
+			child.set_shake_severity(v)
+			return true
+	return false
+	
 func transition_to_next():
 	$SubViewport/BackgroundState.transition_to_next()

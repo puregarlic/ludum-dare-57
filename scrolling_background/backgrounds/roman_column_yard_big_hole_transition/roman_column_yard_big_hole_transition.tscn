@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmqobf78rtbj"]
+[gd_scene load_steps=16 format=3 uid="uid://dmqobf78rtbj"]
 
 [ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_8mawa"]
 [ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_dypng"]
@@ -19,6 +19,12 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="FogMaterial" id="FogMaterial_ugclx"]
+density = 4.5
+albedo = Color(0, 0, 0, 1)
+height_falloff = 0.32768
+edge_fade = 2.11634
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3lqd"]
 albedo_texture = ExtResource("7_ugclx")
@@ -43,8 +49,8 @@ default_curve = ExtResource("2_dypng")
 curve = SubResource("Curve3D_xfe1x")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(0.999995, 0, 0, 0, 0.9999, 0, 0, 0, 0.999906, 0, 7, -809.552)
-progress = 809.552
+transform = Transform3D(0.999995, 0, 0, 0, 0.999885, 0, 0, 0, 0.999889, 0, 7, -664.843)
+progress = 664.843
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D"]
 fov = 95.0
@@ -208,6 +214,11 @@ directional_shadow_mode = 0
 directional_shadow_fade_start = 1.0
 directional_shadow_max_distance = 1200.0
 sky_mode = 1
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -3.9193, -2220)
+size = Vector3(30, 30, 30)
+material = SubResource("FogMaterial_ugclx")
 
 [node name="CSGGeom" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2220)
