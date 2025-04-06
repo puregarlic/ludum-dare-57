@@ -15,7 +15,11 @@ enum Philosopher {
 
 @export var current_state: SpeakerAnimationStates = SpeakerAnimationStates.MATCHING
 @export var intensity: int = 0
-@export var philosopher: Philosopher = Philosopher.PIUS
+@export var philosopher: Philosopher = Philosopher.PIUS:
+	set(value):
+		philosopher = value
+		load_philosopher()
+		
 # Chance that on a higher intensity the speaker will play an animation from a lower intensity
 @export var intensity_switch_chance := 0.3
 
@@ -30,12 +34,7 @@ func _ready() -> void:
 	intensity = 0
 	current_state = SpeakerAnimationStates.MATCHING
 	
-	match philosopher:
-		Philosopher.PIUS:
-			sprite_frames = pius_resource
-		Philosopher.CAESAR:
-			sprite_frames = caesar_resource
-			
+	load_philosopher()
 	matching()
 
 ## Dummy function to test out speaking animation
@@ -82,3 +81,11 @@ func talk():
 	current_state = SpeakerAnimationStates.TALK
 	await animation_finished
 	prepare_talk()
+
+# Internal functions don't use
+func load_philosopher():
+	match philosopher:
+		Philosopher.PIUS:
+			sprite_frames = pius_resource
+		Philosopher.CAESAR:
+			sprite_frames = caesar_resource
