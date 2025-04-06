@@ -53,10 +53,10 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.0705267
+rotation = -0.0518851
 scale = Vector2(0.0712521, 0.0712521)
 value = 35.0
-tint_progress = Color(0.854562, 0.329929, 0.306755, 1)
+tint_progress = Color(0.630401, 0.534707, 0.530481, 1)
 time_left = 0.345
 
 [node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
@@ -143,9 +143,9 @@ size_flags_vertical = 4
 
 [node name="SpeakerAnimation" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2" instance=ExtResource("2_1wgn8")]
 unique_name_in_owner = true
-position = Vector2(0, -70)
-scale = Vector2(0.648148, 0.648148)
-frame_progress = 0.358462
+position = Vector2(252, 208)
+scale = Vector2(0.54, 0.54)
+frame_progress = 0.628731
 intensity_switch_chance = 0.2
 
 [node name="WordSpawnPoint" type="Node2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]
