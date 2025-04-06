@@ -618,7 +618,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"talk1",
-"speed": 20.0
+"speed": 26.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -644,7 +644,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"talk2",
-"speed": 20.0
+"speed": 26.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -670,7 +670,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"talk3",
-"speed": 20.0
+"speed": 26.0
 }, {
 "frames": [{
 "duration": 1.0,
