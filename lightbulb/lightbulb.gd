@@ -4,10 +4,7 @@ extends TextureProgressBar
 @export var enabled: bool = false:
 	set(value):
 		enabled = value
-		if enabled:
-			visible = true
-		else:
-			visible = false
+		visible = enabled
 
 @export var fill: float = 0.0:
 	set(value):

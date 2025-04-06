@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://2dk5c86dnip3"]
 
-[ext_resource type="SpriteFrames" uid="uid://bycmt6anjpi71" path="res://speaker_animation/pius.tres" id="1_3hjk1"]
+[ext_resource type="SpriteFrames" uid="uid://c0g1i2bdfvny6" path="res://speaker_animation/caesar.tres" id="1_3hjk1"]
 [ext_resource type="Script" uid="uid://dyu5v1aolugg3" path="res://speaker_animation/speaker_animation.gd" id="162_yabmj"]
 
 [node name="SpeakerAnimation" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_3hjk1")
 animation = &"idle"
 script = ExtResource("162_yabmj")
+philosopher = 1

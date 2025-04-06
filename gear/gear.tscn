@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqnmq7pp80dfp"]
+
+[ext_resource type="Texture2D" uid="uid://b7o32jnvu8q86" path="res://gear/gear_outer.png" id="1_q3ecm"]
+[ext_resource type="Texture2D" uid="uid://eq2x8cma05at" path="res://gear/gear_inner.png" id="2_6cers"]
+[ext_resource type="Script" uid="uid://bgo8tocj67r4m" path="res://gear/gear.gd" id="3_3a5vt"]
+
+[node name="Gear" type="TextureProgressBar"]
+offset_right = 512.0
+offset_bottom = 512.0
+rotation = 0.000224425
+pivot_offset = Vector2(256, 256)
+value = 100.0
+fill_mode = 3
+texture_over = ExtResource("1_q3ecm")
+texture_progress = ExtResource("2_6cers")
+tint_progress = Color(0.580392, 0.580392, 0.580392, 1)
+script = ExtResource("3_3a5vt")
+enabled = true
+time_left = 1.58
+low_on_time_tint = Color(0.870434, 0.315429, 0.290914, 1)
+low_on_time_rotation_amount = 9.075
