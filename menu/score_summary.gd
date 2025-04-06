@@ -47,17 +47,17 @@ func start_score_sequence():
 
 func calculate_grade(dialogues: int) -> String:
 	if dialogues < 5:
-		return "Phlebotomist"
+		return "PHLEBOTOMIST"
 	elif dialogues < 10:
-		return "Scholar"
+		return "SCHOLAR"
 	elif dialogues < 15:
-		return "Orator"
+		return "ORATOR"
 	elif dialogues < 20:
-		return "Philosopher"
+		return "PHILOSOPHER"
 	elif dialogues < 25:
-		return "The Great"
+		return "THE GREAT"
 	else:
-		return "Immortal Persuasion!"
+		return "IMMORTAL PERSUASION!"
 
 func play_sound(stream: AudioStream):
 	var player = AudioStreamPlayer.new()
