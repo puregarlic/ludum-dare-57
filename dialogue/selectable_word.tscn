@@ -9,12 +9,14 @@ height = 112.0
 [node name="SelectableWord" type="RigidBody2D"]
 input_pickable = true
 script = ExtResource("1_gqrqj")
+hover_tint = Color(0.262291, 0.713558, 0.696455, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4v37u")
 
 [node name="Label" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
 offset_left = -214.0
 offset_top = -62.0
 offset_right = 227.0
@@ -29,4 +31,6 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

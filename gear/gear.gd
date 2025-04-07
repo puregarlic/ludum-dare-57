@@ -1,4 +1,3 @@
-@tool
 extends TextureProgressBar
 
 enum GearStates {
@@ -9,6 +8,8 @@ enum GearStates {
 
 var current_state: GearStates = GearStates.NORMAL
 var pulse_timer: float = 0.0
+
+@export var tension_sound_library: Dictionary
 
 @export var enabled: bool = false:
 	set(value):
@@ -28,12 +29,24 @@ var pulse_timer: float = 0.0
 			GearStates.LOW_ON_TIME:
 				if !enabled:
 					disabled()
+					
+var tension: int = 0:
+	set(value):
+		if current_state != GearStates.DISABLED and tension != value:
+			var next_sound = tension_sound_library[value]
+			%TensionTimpani.stop()
+			%TensionTimpani.stream = next_sound
+			%TensionTimpani.play()
+			
+		tension = value
+		
 
 # Expressed as percentage of time left from 0.0 to 1.0
 @export var time_left: float = 0.0:
 	set(value):
 		time_left = value
 		self.value = time_left * self.max_value
+		tension = floor(clamp((1.0 - time_left) * 4.0, 0.0, 3.9))
 		
 		match current_state:
 			GearStates.NORMAL:
@@ -65,12 +78,16 @@ func disabled():
 	pulse_timer = 0.0
 	tint_progress = default_tint
 	rotation_degrees = 0.0
+	%DroneTension.stop()
+	%TensionTimpani.stop()
 	
 func normal():
 	current_state = GearStates.NORMAL
 	pulse_timer = 0.0
 	tint_progress = default_tint
 	rotation_degrees = 0.0
+	%DroneTension.play()
+	%TensionTimpani.play()
 	
 func low_on_time():
 	current_state = GearStates.LOW_ON_TIME

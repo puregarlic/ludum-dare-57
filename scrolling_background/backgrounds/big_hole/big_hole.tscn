@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_sec2o"]
 [ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_yp1fm"]
-[ext_resource type="Script" uid="uid://c5qlg5ne7kgmy" path="res://scrolling_background/backgrounds/big_hole/big_hole_fog_falloff.gd" id="3_3ff7a"]
+[ext_resource type="Script" path="res://scrolling_background/backgrounds/big_hole/big_hole_fog_falloff.gd" id="3_3ff7a"]
 [ext_resource type="Script" uid="uid://c70ocjmtqgcup" path="res://scrolling_background/backgrounds/big_hole/angery_camera.gd" id="3_ml2ns"]
 [ext_resource type="Environment" uid="uid://csxbj4enxjbrj" path="res://scrolling_background/backgrounds/big_hole/big_hole_env.tres" id="3_rbmj6"]
 [ext_resource type="PackedScene" uid="uid://1sla2wruktvd" path="res://scrolling_background/backgrounds/big_hole/cave_wall.tscn" id="4_rbmj6"]
-[ext_resource type="Script" uid="uid://ca665u3wyad3f" path="res://scrolling_background/backgrounds/big_hole/camera_spinner.gd" id="6_db8yj"]
+[ext_resource type="Script" path="res://scrolling_background/backgrounds/big_hole/camera_spinner.gd" id="6_db8yj"]
 
 [sub_resource type="Curve3D" id="Curve3D_sec2o"]
 _data = {
@@ -25,6 +25,7 @@ default_curve = ExtResource("2_yp1fm")
 curve = SubResource("Curve3D_sec2o")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
+<<<<<<< HEAD
 transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -17.0978, 0)
 progress = 17.0974
 

@@ -4,61 +4,61 @@
 [ext_resource type="PackedScene" uid="uid://dh2l1mqutpnq1" path="res://dialogue/speaker.tscn" id="2_khaah"]
 [ext_resource type="FontFile" uid="uid://dvxlea1bmc6k0" path="res://dialogue/fonts/Kalam-Regular.ttf" id="3_v4u3h"]
 [ext_resource type="FontFile" uid="uid://c480g2hnvtq3g" path="res://dialogue/fonts/RedactedScript-Regular.ttf" id="4_vkomn"]
-[ext_resource type="AudioStream" uid="uid://pjwho1vn604q" path="res://audio/Upper Register Speech/UpperRegSpeech01.wav" id="5_6jdo5"]
 [ext_resource type="AudioStream" uid="uid://dwfrlgh7dbxmr" path="res://audio/Lower Register Speech/LowRegSpeech01.wav" id="5_lg1rw"]
 [ext_resource type="FontFile" uid="uid://bqvlxm3er5vim" path="res://dialogue/fonts/YatraOne-Regular.ttf" id="5_n0hh8"]
 [ext_resource type="AudioStream" uid="uid://cxh7lkvt1gsyf" path="res://audio/Lower Register Speech/LowRegSpeech02.wav" id="6_a3nsd"]
-[ext_resource type="AudioStream" uid="uid://bsmdficami601" path="res://audio/Upper Register Speech/UpperRegSpeech02.wav" id="6_nv5ej"]
 [ext_resource type="FontFile" uid="uid://cf12wtyfvl616" path="res://dialogue/fonts/FlowBlock-Regular.ttf" id="6_wbuqm"]
 [ext_resource type="AudioStream" uid="uid://buhtun6l5heuu" path="res://audio/Lower Register Speech/LowRegSpeech03.wav" id="7_amu0h"]
-[ext_resource type="AudioStream" uid="uid://0f1jvyrowgho" path="res://audio/Upper Register Speech/UpperRegSpeech03.wav" id="7_miywn"]
-[ext_resource type="AudioStream" uid="uid://wyj87a04k402" path="res://audio/Upper Register Speech/UpperRegSpeech04.wav" id="8_b1dps"]
 [ext_resource type="AudioStream" uid="uid://bikrxnn82ahn2" path="res://audio/Lower Register Speech/LowRegSpeech04.wav" id="8_rcs47"]
-[ext_resource type="AudioStream" uid="uid://bwq6ykernhg26" path="res://audio/Upper Register Speech/UpperRegSpeech05.wav" id="9_a0yft"]
 [ext_resource type="AudioStream" uid="uid://hnx2g3u88yss" path="res://audio/Lower Register Speech/LowRegSpeech05.wav" id="9_yx6j6"]
 [ext_resource type="AudioStream" uid="uid://c35pmbuob0hdx" path="res://audio/Lower Register Speech/LowRegSpeech06.wav" id="10_5ui4i"]
-[ext_resource type="AudioStream" uid="uid://dgyyssw1ks4dh" path="res://audio/Upper Register Speech/UpperRegSpeech06.wav" id="10_s1mkt"]
-[ext_resource type="AudioStream" uid="uid://cy30o7cljax8s" path="res://audio/Upper Register Speech/UpperRegSpeech07.wav" id="11_b1vdc"]
 [ext_resource type="AudioStream" uid="uid://cjajifobyitng" path="res://audio/Lower Register Speech/LowRegSpeech07.wav" id="11_ll1ew"]
 [ext_resource type="AudioStream" uid="uid://dctgqe63v6qv1" path="res://audio/Lower Register Speech/LowRegSpeech08.wav" id="12_dbkac"]
-[ext_resource type="AudioStream" uid="uid://coy2kqvxwcbcw" path="res://audio/Upper Register Speech/UpperRegSpeech08.wav" id="12_x6hj5"]
 [ext_resource type="AudioStream" uid="uid://bpfeswm37g2oj" path="res://audio/Lower Register Speech/LowRegSpeech09.wav" id="13_gax3y"]
-[ext_resource type="AudioStream" uid="uid://dseu61qbt7xfm" path="res://audio/Upper Register Speech/UpperRegSpeech09.wav" id="13_twds4"]
-[ext_resource type="AudioStream" uid="uid://ce3binqn30yrj" path="res://audio/Upper Register Speech/UpperRegSpeech10.wav" id="14_ne04o"]
 [ext_resource type="AudioStream" uid="uid://bgmsf3rq10klt" path="res://audio/Lower Register Speech/LowRegSpeech10.wav" id="14_uh33o"]
 [ext_resource type="AudioStream" uid="uid://bj2unwqmofr0k" path="res://audio/Lower Register Speech/LowRegSpeech11.wav" id="15_5kst1"]
-[ext_resource type="AudioStream" uid="uid://cxbljabrj2amn" path="res://audio/Upper Register Speech/UpperRegSpeech11.wav" id="15_ub4l2"]
-[ext_resource type="AudioStream" uid="uid://bhtqxehdm6o5k" path="res://audio/Upper Register Speech/UpperRegSpeech12.wav" id="16_hv5h1"]
 [ext_resource type="AudioStream" uid="uid://c3otgkt3q2u2v" path="res://audio/Lower Register Speech/LowRegSpeech12.wav" id="16_ox6vw"]
 [ext_resource type="AudioStream" uid="uid://b10ucqjwc8h0k" path="res://audio/Lower Register Speech/LowRegSpeech13.wav" id="17_e0t86"]
-[ext_resource type="AudioStream" uid="uid://ptjyagr74dbb" path="res://audio/Upper Register Speech/UpperRegSpeech13.wav" id="17_m7y5u"]
 [ext_resource type="AudioStream" uid="uid://4n21vgcmgbir" path="res://audio/Lower Register Speech/LowRegSpeech14.wav" id="18_ht25c"]
-[ext_resource type="AudioStream" uid="uid://y2lssxcvsamt" path="res://audio/Upper Register Speech/UpperRegSpeech14.wav" id="18_rg4dx"]
-[ext_resource type="AudioStream" uid="uid://dloba1c8mijrt" path="res://audio/Upper Register Speech/UpperRegSpeech15.wav" id="19_ftuq2"]
 [ext_resource type="AudioStream" uid="uid://cucjm700eboku" path="res://audio/Lower Register Speech/LowRegSpeech15.wav" id="19_jnt3k"]
 [ext_resource type="AudioStream" uid="uid://07ktqn1aw7ci" path="res://audio/Lower Register Speech/LowRegSpeech16.wav" id="20_cphqc"]
-[ext_resource type="AudioStream" uid="uid://cquvte5kunya4" path="res://audio/Upper Register Speech/UpperRegSpeech16.wav" id="20_x036e"]
 [ext_resource type="AudioStream" uid="uid://b3jwxdjul0joh" path="res://audio/Lower Register Speech/LowRegSpeech17.wav" id="21_dgdkd"]
-[ext_resource type="AudioStream" uid="uid://b3c2sipgsnqgf" path="res://audio/Upper Register Speech/UpperRegSpeech17.wav" id="21_dpkak"]
 [ext_resource type="AudioStream" uid="uid://dx07es6gwgs28" path="res://audio/Lower Register Speech/LowRegSpeech18.wav" id="22_gw1wb"]
-[ext_resource type="AudioStream" uid="uid://w3ojg0x5rvgl" path="res://audio/Upper Register Speech/UpperRegSpeech18.wav" id="22_j24in"]
 [ext_resource type="AudioStream" uid="uid://dfmcd8fmh3qjq" path="res://audio/Lower Register Speech/LowRegSpeech19.wav" id="23_lyj8i"]
-[ext_resource type="AudioStream" uid="uid://0vcx4l6dj255" path="res://audio/Upper Register Speech/UpperRegSpeech19.wav" id="23_t8u65"]
 [ext_resource type="Script" path="res://dialogue/letter_audio.gd" id="24_h77i0"]
-[ext_resource type="AudioStream" uid="uid://d3edca1fgspqr" path="res://audio/Upper Register Speech/UpperRegSpeech20.wav" id="25_cn3pa"]
 [ext_resource type="AudioStream" uid="uid://cq8o7dvems5s3" path="res://audio/Lower Register Speech/LowRegSpeech20.wav" id="25_dv6ek"]
-[ext_resource type="AudioStream" uid="uid://c0ydbffsl8v1g" path="res://audio/Upper Register Speech/UpperRegSpeech21.wav" id="26_kh2k6"]
 [ext_resource type="AudioStream" uid="uid://d1ouhpj7fc5sp" path="res://audio/Lower Register Speech/LowRegSpeech21.wav" id="26_sh36a"]
 [ext_resource type="AudioStream" uid="uid://b3s0ply4qr0ds" path="res://audio/Lower Register Speech/LowRegSpeech22.wav" id="27_0w4p7"]
-[ext_resource type="AudioStream" uid="uid://bveye2abmarqy" path="res://audio/Upper Register Speech/UpperRegSpeech22.wav" id="27_78gl3"]
 [ext_resource type="AudioStream" uid="uid://dv5olr3kahmlb" path="res://audio/Lower Register Speech/LowRegSpeech23.wav" id="28_0oyps"]
-[ext_resource type="AudioStream" uid="uid://bxgoc1o6lsg01" path="res://audio/Upper Register Speech/UpperRegSpeech23.wav" id="28_myuso"]
 [ext_resource type="AudioStream" uid="uid://ot2g46vsah8w" path="res://audio/Lower Register Speech/LowRegSpeech24.wav" id="29_kc77o"]
-[ext_resource type="AudioStream" uid="uid://djp24lij1g41p" path="res://audio/Upper Register Speech/UpperRegSpeech24.wav" id="29_yf34b"]
 [ext_resource type="AudioStream" uid="uid://c8rkgi07hnb7v" path="res://audio/Lower Register Speech/LowRegSpeech25.wav" id="30_c4clr"]
-[ext_resource type="AudioStream" uid="uid://c6o2gxo4wwcw4" path="res://audio/Upper Register Speech/UpperRegSpeech25.wav" id="30_pttos"]
 [ext_resource type="AudioStream" uid="uid://bqltuonwta0dl" path="res://audio/Lower Register Speech/LowRegSpeech26.wav" id="31_36b5t"]
-[ext_resource type="AudioStream" uid="uid://cjtly5kanjh7q" path="res://audio/Upper Register Speech/UpperRegSpeech26.wav" id="31_lg1rw"]
+[ext_resource type="AudioStream" uid="uid://detlxvi2osl3u" path="res://audio/Upper Register Speech/UpperRegSpeech01v2.wav" id="34_uh33o"]
+[ext_resource type="AudioStream" uid="uid://bk5dndmqs25mx" path="res://audio/Upper Register Speech/UpperRegSpeech02v2.wav" id="35_5kst1"]
+[ext_resource type="AudioStream" uid="uid://dfprbi5vwkelu" path="res://audio/Upper Register Speech/UpperRegSpeech03v2.wav" id="36_ox6vw"]
+[ext_resource type="AudioStream" uid="uid://pgojrawm2mv8" path="res://audio/Upper Register Speech/UpperRegSpeech04v2.wav" id="37_e0t86"]
+[ext_resource type="AudioStream" uid="uid://jcmojd4o7iu" path="res://audio/Upper Register Speech/UpperRegSpeech05v2.wav" id="38_ht25c"]
+[ext_resource type="AudioStream" uid="uid://srox2tfg3hg5" path="res://audio/Upper Register Speech/UpperRegSpeech06v2.wav" id="39_jnt3k"]
+[ext_resource type="AudioStream" uid="uid://d06ulbjayflm8" path="res://audio/Upper Register Speech/UpperRegSpeech07v2.wav" id="40_cphqc"]
+[ext_resource type="AudioStream" uid="uid://bpykn525xhnvn" path="res://audio/Upper Register Speech/UpperRegSpeech08v2.wav" id="41_dgdkd"]
+[ext_resource type="AudioStream" uid="uid://sma3clhx3g2e" path="res://audio/Upper Register Speech/UpperRegSpeech09v2.wav" id="42_gw1wb"]
+[ext_resource type="AudioStream" uid="uid://lmqvghvwsglg" path="res://audio/Upper Register Speech/UpperRegSpeech10v2.wav" id="43_lyj8i"]
+[ext_resource type="AudioStream" uid="uid://c5uuy3bacdim7" path="res://audio/Upper Register Speech/UpperRegSpeech11v2.wav" id="44_dv6ek"]
+[ext_resource type="AudioStream" uid="uid://c5nee6ywcq0ma" path="res://audio/Upper Register Speech/UpperRegSpeech12v2.wav" id="45_sh36a"]
+[ext_resource type="AudioStream" uid="uid://c5xy0pgbyvshc" path="res://audio/Upper Register Speech/UpperRegSpeech13v2.wav" id="46_0w4p7"]
+[ext_resource type="AudioStream" uid="uid://bljpop0a2oani" path="res://audio/Upper Register Speech/UpperRegSpeech14v2.wav" id="47_0oyps"]
+[ext_resource type="AudioStream" uid="uid://dtvtbkrm6dbsq" path="res://audio/Upper Register Speech/UpperRegSpeech15v2.wav" id="48_kc77o"]
+[ext_resource type="AudioStream" uid="uid://ckd0d2v0xxfbb" path="res://audio/Upper Register Speech/UpperRegSpeech16v2.wav" id="49_c4clr"]
+[ext_resource type="AudioStream" uid="uid://i0w3mp0cph4t" path="res://audio/Upper Register Speech/UpperRegSpeech17v2.wav" id="50_36b5t"]
+[ext_resource type="AudioStream" uid="uid://cx3g71olpol8n" path="res://audio/Upper Register Speech/UpperRegSpeech18v2.wav" id="51_uma4v"]
+[ext_resource type="AudioStream" uid="uid://bw0n3vpt5i4vm" path="res://audio/Upper Register Speech/UpperRegSpeech19v2.wav" id="52_c373d"]
+[ext_resource type="AudioStream" uid="uid://cffh3xsfr5r5b" path="res://audio/Upper Register Speech/UpperRegSpeech20v2.wav" id="53_brr2j"]
+[ext_resource type="AudioStream" uid="uid://bs4yghcit2we3" path="res://audio/Upper Register Speech/UpperRegSpeech21v2.wav" id="54_1pq3o"]
+[ext_resource type="AudioStream" uid="uid://d3mw32dd3ropj" path="res://audio/Upper Register Speech/UpperRegSpeech22v2.wav" id="55_smuph"]
+[ext_resource type="AudioStream" uid="uid://ghoyrucovm56" path="res://audio/Upper Register Speech/UpperRegSpeech23v2.wav" id="56_sjrvx"]
+[ext_resource type="AudioStream" uid="uid://cuo0j0pp0hpbi" path="res://audio/Upper Register Speech/UpperRegSpeech24v2.wav" id="57_023qv"]
+[ext_resource type="AudioStream" uid="uid://bfyhro1ksqi7h" path="res://audio/Upper Register Speech/UpperRegSpeech25v2.wav" id="58_8d764"]
+[ext_resource type="AudioStream" uid="uid://cys83q7pf3obf" path="res://audio/Upper Register Speech/UpperRegSpeech26v2.wav" id="59_642bg"]
 [ext_resource type="AudioStream" uid="uid://n6a5purkw4gs" path="res://audio/Word Match Bloops/WordMatch01.wav" id="60_dbkac"]
 [ext_resource type="AudioStream" uid="uid://dijrtpfpv5xf5" path="res://audio/Word Match Bloops/WordMatch02.wav" id="61_gax3y"]
 [ext_resource type="AudioStream" uid="uid://b324bvgw140i1" path="res://audio/Word Match Bloops/WordMatch03.wav" id="62_uh33o"]
@@ -101,32 +101,32 @@ metadata/_custom_type_script = "uid://b5bhvu5wgak3e"
 
 [sub_resource type="Resource" id="Resource_a3nsd"]
 script = ExtResource("24_h77i0")
-a = ExtResource("5_6jdo5")
-b = ExtResource("6_nv5ej")
-c = ExtResource("7_miywn")
-d = ExtResource("8_b1dps")
-e = ExtResource("9_a0yft")
-f = ExtResource("10_s1mkt")
-g = ExtResource("11_b1vdc")
-h = ExtResource("12_x6hj5")
-i = ExtResource("13_twds4")
-j = ExtResource("14_ne04o")
-k = ExtResource("15_ub4l2")
-l = ExtResource("16_hv5h1")
-m = ExtResource("17_m7y5u")
-n = ExtResource("18_rg4dx")
-o = ExtResource("19_ftuq2")
-p = ExtResource("20_x036e")
-q = ExtResource("21_dpkak")
-r = ExtResource("22_j24in")
-s = ExtResource("23_t8u65")
-t = ExtResource("25_cn3pa")
-u = ExtResource("26_kh2k6")
-v = ExtResource("27_78gl3")
-w = ExtResource("28_myuso")
-x = ExtResource("29_yf34b")
-y = ExtResource("30_pttos")
-z = ExtResource("31_lg1rw")
+a = ExtResource("34_uh33o")
+b = ExtResource("35_5kst1")
+c = ExtResource("36_ox6vw")
+d = ExtResource("37_e0t86")
+e = ExtResource("38_ht25c")
+f = ExtResource("39_jnt3k")
+g = ExtResource("40_cphqc")
+h = ExtResource("41_dgdkd")
+i = ExtResource("42_gw1wb")
+j = ExtResource("43_lyj8i")
+k = ExtResource("44_dv6ek")
+l = ExtResource("45_sh36a")
+m = ExtResource("46_0w4p7")
+n = ExtResource("47_0oyps")
+o = ExtResource("48_kc77o")
+p = ExtResource("49_c4clr")
+q = ExtResource("50_36b5t")
+r = ExtResource("51_uma4v")
+s = ExtResource("52_c373d")
+t = ExtResource("53_brr2j")
+u = ExtResource("54_1pq3o")
+v = ExtResource("55_smuph")
+w = ExtResource("56_sjrvx")
+x = ExtResource("57_023qv")
+y = ExtResource("58_8d764")
+z = ExtResource("59_642bg")
 metadata/_custom_type_script = "uid://b5bhvu5wgak3e"
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jnt3k"]
@@ -162,18 +162,24 @@ alignment = 1
 voice_map = SubResource("Resource_a3nsd")
 
 [node name="AudioPlayers" type="Node2D" parent="."]
+position = Vector2(960, 540)
 
 [node name="MatchSuccess" type="AudioStreamPlayer2D" parent="AudioPlayers"]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_jnt3k")
+volume_db = 10.268
 
 [node name="MatchFail" type="AudioStreamPlayer2D" parent="AudioPlayers"]
 unique_name_in_owner = true
 stream = ExtResource("67_gax3y")
+volume_db = 12.917
 
 [node name="Idea" type="AudioStreamPlayer2D" parent="AudioPlayers"]
 unique_name_in_owner = true
 stream = ExtResource("68_uh33o")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="finished_speaking" from="SpeakerLeft" to="." method="_on_speaker_left_finished_speaking"]
 [connection signal="finished_speaking" from="SpeakerRight" to="." method="_on_speaker_right_finished_speaking"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

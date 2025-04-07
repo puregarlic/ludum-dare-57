@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://1r7pslltsbui"]
+
+[ext_resource type="Texture2D" uid="uid://cnybru62v7jfv" path="res://dialogue/wrong.png" id="1_hb4xv"]
+[ext_resource type="Script" uid="uid://8fcgphlt5g8g" path="res://dialogue/wrong_word_effect.gd" id="2_722ii"]
+
+[sub_resource type="Curve" id="Curve_hb4xv"]
+_data = [Vector2(0, 0.00817442), 0.0, 0.0, 0, 0, Vector2(0.0405157, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00374663), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_722ii"]
+curve = SubResource("Curve_hb4xv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w4agj"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(150, 30, 1)
+spread = 180.0
+initial_velocity_min = 47.48
+initial_velocity_max = 105.99
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_722ii")
+
+[node name="WrongWordEffect" type="GPUParticles2D"]
+emitting = false
+amount = 30
+texture = ExtResource("1_hb4xv")
+one_shot = true
+explosiveness = 0.85
+visibility_rect = Rect2(-200, -200, 400, 400)
+process_material = SubResource("ParticleProcessMaterial_w4agj")
+script = ExtResource("2_722ii")

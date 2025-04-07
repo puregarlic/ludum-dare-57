@@ -7,13 +7,13 @@
 
 [node name="Lightbulb" type="TextureProgressBar"]
 scale = Vector2(0.05, 0.05)
-value = 48.0
+value = 100.0
 fill_mode = 3
 texture_over = ExtResource("3_307wd")
 texture_progress = ExtResource("2_ifm5s")
 script = ExtResource("1_vtrlg")
 enabled = true
-fill = 0.3
+fill = 1.0
 
 [node name="Ding" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

@@ -18,6 +18,9 @@ class_name Speaker extends Node2D
 @onready var bust_container = %HBustContainer
 @onready var word_spawn_point = %WordSpawnPoint
 
+var correct_word_effect: PackedScene = preload("res://dialogue/correct_word_effect.tscn")
+var wrong_word_effect: PackedScene = preload("res://dialogue/wrong_word_effect.tscn")
+
 enum State {
 	SPEAKING,
 	FINISHED_SPEAKING,
@@ -56,7 +59,6 @@ func _ready():
 func _process(delta: float) -> void:
 	match state:
 		State.SPEAKING:
-			listener.make_current()
 			if elapsed >= speech_duration:
 				label.visible_ratio = 1
 				state = State.FINISHED_SPEAKING
@@ -81,7 +83,6 @@ func _process(delta: float) -> void:
 				
 				elapsed += delta
 		State.THINKING:
-			listener.make_current()
 			if elapsed >= brainstorm_rate:
 				elapsed = 0
 				spawn_word(manager.get_weighted_selectable_word(brainstorm_probabability))
@@ -133,7 +134,7 @@ func speak(dialogue: Array[Dictionary], duration: int = speech_duration):
 	format_dialogue(dialogue)
 	
 	speech_duration = duration
-	panel.visible = true
+	panel.visible = true 
 	state = State.SPEAKING
 	
 func hide_dialogue():
@@ -148,6 +149,13 @@ func brainstorm(rate: float, probability: float) -> void:
 	brainstorm_rate = rate
 	brainstorm_probabability = probability
 
-func _on_word_clicked(word: String):
-	manager.match(word)
-	pass
+func _on_word_clicked(word: String, location: Vector2):
+	var correct: bool = manager.match(word)
+	var effect_scene: Node
+	if correct:
+		effect_scene = correct_word_effect.instantiate()
+	else:
+		effect_scene = wrong_word_effect.instantiate()
+		
+	effect_scene.global_position = location
+	add_child(effect_scene)
