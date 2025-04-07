@@ -161,8 +161,8 @@ mouse_filter = 2
 
 [node name="SpeakerAnimation" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2" instance=ExtResource("2_1wgn8")]
 unique_name_in_owner = true
-position = Vector2(252, 208)
-scale = Vector2(0.54, 0.54)
+position = Vector2(252, 211)
+scale = Vector2(0.80181, 0.80181)
 frame_progress = 0.602348
 intensity_switch_chance = 0.2
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dyu5v1aolugg3" path="res://speaker_animation/speaker_animation.gd" id="162_yabmj"]
 
 [node name="SpeakerAnimation" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
 sprite_frames = ExtResource("1_3hjk1")
 animation = &"talk_idle"
 frame_progress = 1.0

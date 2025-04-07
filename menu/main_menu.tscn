@@ -59,7 +59,7 @@ viewport_y_div = 1.8
 x_offset = -400.0
 
 [node name="Pius" type="AnimatedSprite2D" parent="PiusBounceTarget"]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.8, 0.8)
 sprite_frames = ExtResource("6_youj7")
 animation = &"talk_idle"
 frame_progress = 1.0
@@ -74,7 +74,7 @@ viewport_y_div = 1.4
 x_offset = 400.0
 
 [node name="Caesar" type="AnimatedSprite2D" parent="CaesarBounceTarget"]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.8, 0.8)
 sprite_frames = ExtResource("7_0tw43")
 animation = &"talk_idle"
 frame_progress = 1.0

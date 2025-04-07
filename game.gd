@@ -7,8 +7,8 @@ var score_screen = preload("res://menu/score_summary.tscn")
 var manager
 var num_dialogues_completed := 0
 
-const cursor_open = preload("res://cursor/HandCursorOpen128x128.png")
-const cursor_closed = preload("res://cursor/HandCursorClosed128x128.png")
+const cursor_open = preload("res://dialogue/cursor/HandCursorOpen128x128.png")
+const cursor_closed = preload("res://dialogue/cursor/HandCursorClosed128x128.png")
 
 func _ready():
 	$MainMenu.main_menu_interacted.connect(_on_main_menu_interacted)
