@@ -129,7 +129,7 @@ func match(word: String) -> bool:
 	else:
 		failed_match_player.play()
 		if state == State.MATCHING:
-			timer.start(timer.time_left - incorrect_word_penalty)
+			timer.start(max(timer.time_left - incorrect_word_penalty, 0.01))
 		return false
 		
 func increase_difficulty():

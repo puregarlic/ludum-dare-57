@@ -10,7 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://bay27i1jj2m5q" path="res://audio/Tension Sounds/TimpaniStage04.wav" id="7_kloqy"]
 
 [node name="Gear" type="TextureProgressBar"]
-visible = false
 offset_right = 512.0
 offset_bottom = 512.0
 pivot_offset = Vector2(256, 256)
@@ -26,15 +25,17 @@ tension_sound_library = {
 2: ExtResource("6_kloqy"),
 3: ExtResource("7_kloqy")
 }
-time_left = 1.0
+enabled = true
+time_left = 0.995
 low_on_time_tint = Color(0.870434, 0.315429, 0.290914, 1)
 low_on_time_rotation_amount = 9.075
 
 [node name="DroneTension" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_6cers")
-volume_db = 3.0
+volume_db = 7.114
 
 [node name="TensionTimpani" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_3a5vt")
+volume_db = 7.638

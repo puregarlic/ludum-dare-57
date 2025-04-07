@@ -19,7 +19,7 @@ offset_bottom = 1369.0
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_sb48q")
-volume_db = -10.0
+volume_db = -8.237
 parameters/looping = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -29,9 +29,11 @@ one_shot = true
 [node name="MenuAmbiance" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_t88pq")
+volume_db = 2.35
 autoplay = true
 parameters/looping = true
 
 [node name="TheEndSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_r0x5m")
+volume_db = 2.35

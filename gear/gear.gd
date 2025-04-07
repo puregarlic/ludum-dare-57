@@ -33,6 +33,9 @@ var pulse_timer: float = 0.0
 					
 var tension: int = 0:
 	set(value):
+		if is_node_ready() and !%TensionTimpani.playing and enabled:
+			%TensionTimpani.play()
+			
 		if current_state != GearStates.DISABLED and tension != value:
 			var next_sound = tension_sound_library[value]
 			%TensionTimpani.stop()

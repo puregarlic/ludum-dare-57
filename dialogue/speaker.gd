@@ -63,6 +63,7 @@ func _ready():
 			indicators_container.layout_direction = 3
 			%Lightbulb.global_position = %Lightbulb.get_parent().global_position
 			style_box.skew *= -1
+			%MurmurPlayer.volume_db *= 0.75
 
 func _process(delta: float) -> void:
 	match state:
