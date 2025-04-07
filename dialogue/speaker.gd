@@ -16,10 +16,12 @@ class_name Speaker extends Node2D
 @onready var dialogue_container = %HDialogueContainer
 @onready var panel: PanelContainer = %Panel
 @onready var bust_container = %HBustContainer
+@onready var indicators_container = %IndicatorsContainer
 @onready var word_spawn_point = %WordSpawnPoint
 
 var correct_word_effect: PackedScene = preload("res://dialogue/correct_word_effect.tscn")
 var wrong_word_effect: PackedScene = preload("res://dialogue/wrong_word_effect.tscn")
+var active_timer: Timer
 
 enum State {
 	SPEAKING,
@@ -52,10 +54,14 @@ func _ready():
 			bust.philosopher = 0
 			dialogue_container.layout_direction = 2
 			bust_container.layout_direction = 2
+			indicators_container.layout_direction = 2
+			%Lightbulb.global_position = %Lightbulb.get_parent().global_position
 		Alignment.RIGHT:
 			bust.philosopher = 1
 			dialogue_container.layout_direction = 3
 			bust_container.layout_direction = 3
+			indicators_container.layout_direction = 3
+			%Lightbulb.global_position = %Lightbulb.get_parent().global_position
 			style_box.skew *= -1
 
 func _process(delta: float) -> void:
@@ -66,7 +72,7 @@ func _process(delta: float) -> void:
 				state = State.FINISHED_SPEAKING
 				elapsed = 0
 				finished_speaking.emit()
-				bust.matching()
+				bust.prepare_talk()
 			else:
 				var cps = speech_duration / float(label.get_total_character_count())
 				
@@ -85,6 +91,11 @@ func _process(delta: float) -> void:
 				
 				elapsed += delta
 		State.THINKING:
+			%Gear.time_left = active_timer.time_left / manager.brainstorm_duration
+			
+			if active_timer.time_left < manager.brainstorm_duration * 0.5:
+				bust.nervous()
+			
 			if elapsed >= brainstorm_rate:
 				elapsed = 0
 				spawn_word(manager.get_weighted_selectable_word(brainstorm_probabability))
@@ -136,21 +147,35 @@ func speak(dialogue: Array[Dictionary], duration: int = speech_duration):
 	format_dialogue(dialogue)
 	
 	speech_duration = duration
-	panel.visible = true 
+	dialogue_container.visible = true
+	#panel.visible = true 
 	state = State.SPEAKING
+	indicators_container.visible = false
+	%Gear.time_left = 0.0
+	%Gear.enabled = false
+	%Lightbulb.fill = 0.0
+	%Lightbulb.enabled = false
 	
 func hide_dialogue():
-	panel.visible = false
+	dialogue_container.visible = false
+	bust.matching()
 	
 func update_speech(dialogue: Array[Dictionary]):
 	# Update text in place
 	format_dialogue(dialogue)
 
-func brainstorm(rate: float, probability: float) -> void:
+func brainstorm(rate: float, probability: float, active_timer: Timer) -> void:
 	state = State.THINKING
+	bust.matching()
 	brainstorm_rate = rate
 	brainstorm_probabability = probability
-
+	self.active_timer = active_timer
+	indicators_container.visible = true
+	%Gear.time_left = 1.0
+	%Gear.enabled = true
+	%Lightbulb.fill = 0.0
+	%Lightbulb.enabled = true
+	
 func _on_word_clicked(word: String, location: Vector2):
 	var correct: bool = manager.match(word)
 	var effect_scene: Node

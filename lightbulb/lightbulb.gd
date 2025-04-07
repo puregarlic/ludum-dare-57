@@ -11,6 +11,3 @@ extends TextureProgressBar
 		self.value = remap(fill, 0.0, 1.0, 25.0, 100.0)
 		if enabled and is_node_ready():
 			%Ding.play()
-
-func _ready():
-	enabled = false
