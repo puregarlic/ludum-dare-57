@@ -120,7 +120,7 @@ func match(word: String) -> bool:
 			SpeakerSide.RIGHT:
 				speakerRight.update_speech(current_dialogue)
 		
-		if float(correct_selections) / float(len(current_selectable)) >= dialogue_required_match_ratio:
+		if correct_selections / len(current_selectable) >= dialogue_required_match_ratio:
 			score += 1
 			correct_selections = 0
 			increase_difficulty()
