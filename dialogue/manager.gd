@@ -38,9 +38,10 @@ var dialogue_duration: float = 5
 var dialogue_selectable_ratio: float = 0.3
 var dialogue_required_match_ratio: float = 0.1
 var brainstorm_match_probability: float = 2
-var brainstorm_duration: float = 5.0
+var brainstorm_duration: float = 15.0
 var brainstorm_interval: float = 1
 var weight_weight := 0
+var incorrect_word_penalty: float = 3.0
 
 func _ready():
 	var words_string = FileAccess.get_file_as_string("res://dialogue/dictionary.json")
@@ -127,6 +128,8 @@ func match(word: String) -> bool:
 		return true
 	else:
 		failed_match_player.play()
+		if state == State.MATCHING:
+			timer.start(timer.time_left - incorrect_word_penalty)
 		return false
 		
 func increase_difficulty():
@@ -157,12 +160,14 @@ func get_weighted_selectable_word(weight: float) -> String:
 			return get_random_word()
 
 func _on_speaker_left_finished_speaking() -> void:
+	state = State.MATCHING
 	timer.start(brainstorm_duration)
-	speakerRight.brainstorm(brainstorm_interval, brainstorm_match_probability)
+	speakerRight.brainstorm(brainstorm_interval, brainstorm_match_probability, timer)
 
 func _on_speaker_right_finished_speaking() -> void:
+	state = State.MATCHING
 	timer.start(brainstorm_duration)
-	speakerLeft.brainstorm(brainstorm_interval, brainstorm_match_probability)
+	speakerLeft.brainstorm(brainstorm_interval, brainstorm_match_probability, timer)
 
 func _on_timer_timeout() -> void:
 	emit_signal("failed")
