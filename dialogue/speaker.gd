@@ -151,7 +151,6 @@ func speak(dialogue: Array[Dictionary], duration: int = speech_duration):
 	dialogue_container.visible = true
 	#panel.visible = true 
 	state = State.SPEAKING
-	indicators_container.visible = false
 	%Gear.time_left = 0.0
 	%Gear.enabled = false
 	%Lightbulb.fill = 0.0
@@ -171,7 +170,6 @@ func brainstorm(rate: float, probability: float, active_timer: Timer) -> void:
 	brainstorm_rate = rate
 	brainstorm_probabability = probability
 	self.active_timer = active_timer
-	indicators_container.visible = true
 	%Gear.time_left = 1.0
 	%Gear.enabled = true
 	%Lightbulb.fill = 0.0

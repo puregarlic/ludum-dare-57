@@ -33,7 +33,6 @@ mouse_filter = 2
 
 [node name="IndicatorsContainer" type="MarginContainer" parent="Control/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_bottom = 40
