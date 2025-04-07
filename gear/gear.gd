@@ -15,6 +15,7 @@ var pulse_timer: float = 0.0
 	set(value):
 		enabled = value
 		visible = enabled
+		tension = 0
 		
 		match current_state:
 			GearStates.DISABLED:
