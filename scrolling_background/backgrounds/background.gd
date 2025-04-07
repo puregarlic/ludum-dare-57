@@ -9,6 +9,7 @@ signal tile_loop_finished
 @export var progress_speed := 5.0
 @export var default_curve: Curve
 @export var managing_rail: bool = true
+@export var dir_multiplier: int = 1.0
 
 var elapsed := 0.0
 
@@ -22,6 +23,9 @@ func _ready():
 	rail_follower.progress_ratio = 0.0
 
 func _process(delta):
+	if progress_speed == 0.0:
+		return
+		
 	var base_speed := 1.0 / progress_speed
 	var speed_multiplier := 1.0
 
@@ -39,9 +43,12 @@ func _process(delta):
 			active_curve = default_curve
 			emit_signal("anim_finished")
 
-	elapsed += delta * base_speed * speed_multiplier
+	elapsed += delta * base_speed * speed_multiplier * dir_multiplier
 	if elapsed >= 1.0:
 		elapsed = fmod(elapsed, 1.0)
+		emit_signal("tile_loop_finished")
+	elif elapsed <= 0.0 and dir_multiplier == -1:
+		elapsed = 1.0
 		emit_signal("tile_loop_finished")
 
 	if managing_rail:

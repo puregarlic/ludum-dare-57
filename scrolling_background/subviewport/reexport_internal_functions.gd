@@ -3,6 +3,7 @@ extends SubViewportContainer
 
 @onready var deep_node := $SubViewport/BackgroundState/BackgroundAnimationEngine
 var anim_methods := {}
+signal loss_anim_complete
 
 func _ready():
 	for method_info in deep_node.get_method_list():
@@ -41,3 +42,10 @@ func try_call_set_severity(v: float) -> bool:
 	
 func transition_to_next():
 	$SubViewport/BackgroundState.transition_to_next()
+	
+func end_it():
+	deep_node.anim_hyperspeed_perma()
+	deep_node.end_anim_complete.connect(_the_game_is_over)
+
+func _the_game_is_over():
+	emit_signal("loss_anim_complete")

@@ -25,14 +25,14 @@ default_curve = ExtResource("2_yp1fm")
 curve = SubResource("Curve3D_sec2o")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -3.14902, 0)
-progress = 3.14923
+transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -17.0978, 0)
+progress = 17.0974
 
 [node name="ShakePivot" type="Node3D" parent="CameraRail/CameraRailFollow3D"]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D/ShakePivot"]
 unique_name_in_owner = true
-transform = Transform3D(0.939596, 0.337715, -0.0526904, -0.340614, 0.937974, -0.062058, 0.0284697, 0.0762706, 0.996492, 0, 0, 0)
+transform = Transform3D(-0.643064, -0.763568, 0.0555653, 0.765511, -0.640269, 0.0608724, -0.0109055, 0.0816959, 0.99641, 0, 0, 0)
 fov = 90.0
 script = ExtResource("3_ml2ns")
 light_node_path = NodePath("../../../../Environment/DirectionalLight3D")

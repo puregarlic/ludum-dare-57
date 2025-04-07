@@ -17,12 +17,21 @@ var curves = {
 }
 
 var current_background: Background
+var game_state: Globals.BackgroundStates
 var animation_queue = []
+var end_tiles := 0
+var in_end := false
+signal untransition_in_end
+signal end_anim_complete
+signal set_end_state
 
 func set_managed_background(state: Globals.BackgroundStates, background: Background):
 	current_background = background
 	current_background.anim_finished.connect(_on_animation_resolved)
-	_play_initial_animations(state)
+	game_state = state
+	
+	if !in_end:
+		_play_initial_animations(state)
 	
 func remove_managed_background():
 	animation_queue = []
@@ -42,7 +51,6 @@ func _on_animation_resolved():
 func _play_initial_animations(state):
 	if state == Globals.BackgroundStates.ROMAN_COLUMN_YARD_TO_BIG_HOLE:
 		anim_hyperspeed()
-		pass
 	
 # Animation functions
 func anim_gentle_speed_up_slow_down(animation_length_in_seconds: float):
@@ -66,3 +74,33 @@ func anim_mainmenu_speedup():
 	
 func anim_mainmenu_slow():
 	_add_animation_to_queue("veryslow", 0.0)
+	
+func anim_hyperspeed_perma():
+	emit_signal("set_end_state")
+	in_end = true
+	current_background.tile_loop_finished.connect(_count_tiles_for_end_sequence)
+	current_background.dir_multiplier = -1
+	animation_queue = []
+	_add_animation_to_queue("ramp_from_100_to_1000", 3)
+	_add_animation_to_queue("1000", 0.0)
+	
+func anim_hyperspeed_perma_nostatemanage():
+	emit_signal("set_end_state")
+	in_end = true
+	current_background.tile_loop_finished.connect(_count_tiles_for_end_sequence)
+	current_background.dir_multiplier = -1
+	animation_queue = []
+	_add_animation_to_queue("1000", 0.0)
+
+func _count_tiles_for_end_sequence():
+	end_tiles += 1
+	
+	if game_state == Globals.BackgroundStates.BIG_HOLE:
+		if end_tiles >= 10:
+			emit_signal("untransition_in_end")
+	elif game_state == Globals.BackgroundStates.ROMAN_COLUMN_YARD_TO_BIG_HOLE:
+		emit_signal("untransition_in_end")
+	elif game_state == Globals.BackgroundStates.ROMAN_COLUMN_YARD:
+		if end_tiles >= 10:
+			current_background.progress_speed = 0.0
+			emit_signal("end_anim_complete")

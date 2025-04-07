@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cngn8tgxgpeho"]
+[gd_scene load_steps=7 format=3 uid="uid://cngn8tgxgpeho"]
 
 [ext_resource type="PackedScene" uid="uid://6pa8wfua8j4d" path="res://scrolling_background/subviewport/scrolling_background_viewport.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cex833bj7q7rt" path="res://game.gd" id="1_sb48q"]
 [ext_resource type="PackedScene" uid="uid://brxsfgcuxkka" path="res://menu/main_menu.tscn" id="1_u44n3"]
 [ext_resource type="AudioStream" uid="uid://86apej5cp573" path="res://audio/BackgroundMusic.mp3" id="4_sb48q"]
 [ext_resource type="AudioStream" uid="uid://be6j0sqx22ef" path="res://audio/MenuAmbiance.mp3" id="5_t88pq"]
+[ext_resource type="AudioStream" uid="uid://pn435mslq4rq" path="res://audio/RewindWoosh.mp3" id="6_r0x5m"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_sb48q")
@@ -21,10 +22,18 @@ stream = ExtResource("4_sb48q")
 volume_db = -10.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 25.0
+wait_time = 5.0
 one_shot = true
 
 [node name="MenuAmbiance" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_t88pq")
 autoplay = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TheEndSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_r0x5m")
