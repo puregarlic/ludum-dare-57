@@ -74,6 +74,7 @@ func _process(delta: float) -> void:
 				elapsed = 0
 				finished_speaking.emit()
 				bust.prepare_talk()
+				char_delta = 0.0
 			else:
 				var cps = speech_duration / float(label.get_total_character_count())
 				
@@ -86,9 +87,9 @@ func _process(delta: float) -> void:
 						player.play()
 						bust.talk()
 					
-					char_delta = 0
-				else:
-					char_delta += delta
+					char_delta -= cps
+					
+				char_delta += delta
 				
 				elapsed += delta
 		State.THINKING:
