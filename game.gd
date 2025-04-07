@@ -7,6 +7,9 @@ var score_screen = preload("res://menu/score_summary.tscn")
 var manager
 var num_dialogues_completed := 0
 
+const cursor_open = preload("res://cursor/HandCursorOpen128x128.png")
+const cursor_closed = preload("res://cursor/HandCursorClosed128x128.png")
+
 func _ready():
 	$MainMenu.main_menu_interacted.connect(_on_main_menu_interacted)
 	$ScrollingBackgroundEngine.call_anim("anim_mainmenu_slow", [])
@@ -56,3 +59,9 @@ func _my_final_message():
 
 func _reload_self():
 	get_tree().reload_current_scene()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		Input.set_custom_mouse_cursor(cursor_closed, 0, Vector2(2, 1))
+	elif event is InputEventMouseButton and not event.is_pressed():
+		Input.set_custom_mouse_cursor(cursor_open, 0, Vector2(2, 1))
