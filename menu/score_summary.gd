@@ -24,7 +24,7 @@ func start_score_sequence():
 	play_sound(score_sound)
 
 	await get_tree().create_timer(1.2).timeout
-	var fathoms = dialogues_completed * FATHOMS_PER_DIALOGUE
+	var fathoms = snapped(dialogues_completed * FATHOMS_PER_DIALOGUE * randf_range(0.9, 1.3), 0.01)
 	fathoms_value_label.text = str(fathoms)
 	play_sound(score_sound)
 

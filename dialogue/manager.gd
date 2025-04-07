@@ -40,7 +40,8 @@ var dialogue_required_match_ratio: float = 0.1
 var brainstorm_match_probability: float = 1
 var brainstorm_duration: float = 15.0
 var brainstorm_interval: float = 1
-var weight_weight := 0
+var weight_weight_baseline := 0.6
+var weight_weight := weight_weight_baseline
 var incorrect_word_penalty: float = 3.0
 
 func _ready():
@@ -134,6 +135,8 @@ func match(word: String) -> bool:
 		
 func increase_difficulty():
 	dialogue_length += 1
+	if weight_weight_baseline >= -0.5:
+		weight_weight_baseline -= 0.6
 	brainstorm_interval = max(0.5, brainstorm_interval - 0.02)
 		
 func get_random_word() -> String:
@@ -145,7 +148,7 @@ func get_random_selectable_word() -> String:
 		return current_selectable[rand].word
 
 func get_weighted_selectable_word(weight: float) -> String:
-	var correct_or_not = rng.rand_weighted(PackedFloat32Array([weight + weight_weight, 1]))
+	var correct_or_not = rng.rand_weighted(PackedFloat32Array([weight + weight_weight + weight_weight_baseline, 1]))
 	
 	match correct_or_not:
 		0:
@@ -154,7 +157,7 @@ func get_weighted_selectable_word(weight: float) -> String:
 		_:
 			weight_weight += 0.15
 			
-			if weight_weight >= 0.6:
+			if weight_weight > 0.6:
 				weight_weight = 0
 				return get_random_selectable_word()
 			return get_random_word()
