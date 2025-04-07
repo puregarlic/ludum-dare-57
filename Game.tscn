@@ -11,8 +11,8 @@
 script = ExtResource("1_sb48q")
 
 [node name="ScrollingBackgroundEngine" parent="." instance=ExtResource("1_80nbo")]
-offset_right = 1919.0
-offset_bottom = 1082.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 stretch = true
 
 [node name="MainMenu" parent="." instance=ExtResource("1_u44n3")]
