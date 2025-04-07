@@ -10,7 +10,8 @@ class_name Speaker extends Node2D
 @export var voice_map: LetterAudioMap
 
 @onready var bust = %SpeakerAnimation
-@onready var player = %AudioStreamPlayer2D
+@onready var player = %MurmurPlayer
+@onready var listener = %AudioListener2D
 @onready var label = %DialogueLabel
 @onready var dialogue_container = %HDialogueContainer
 @onready var panel: PanelContainer = %Panel
@@ -55,6 +56,7 @@ func _ready():
 func _process(delta: float) -> void:
 	match state:
 		State.SPEAKING:
+			listener.make_current()
 			if elapsed >= speech_duration:
 				label.visible_ratio = 1
 				state = State.FINISHED_SPEAKING
@@ -79,6 +81,7 @@ func _process(delta: float) -> void:
 				
 				elapsed += delta
 		State.THINKING:
+			listener.make_current()
 			if elapsed >= brainstorm_rate:
 				elapsed = 0
 				spawn_word(manager.get_weighted_selectable_word(brainstorm_probabability))
@@ -146,5 +149,5 @@ func brainstorm(rate: float, probability: float) -> void:
 	brainstorm_probabability = probability
 
 func _on_word_clicked(word: String):
-	print("CLICKED: ", word)
+	manager.match(word)
 	pass

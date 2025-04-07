@@ -168,13 +168,16 @@ intensity_switch_chance = 0.2
 
 [node name="WordSpawnPoint" type="Node2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]
 unique_name_in_owner = true
-position = Vector2(38.5714, -439.714)
+position = Vector2(-1.85184, -481.481)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]
+unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="Control/VBoxContainer/HBustContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="MurmurPlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 volume_db = 20.0

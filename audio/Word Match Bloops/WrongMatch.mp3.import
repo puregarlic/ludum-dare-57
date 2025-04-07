@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhojbg83sljlj"
+path="res://.godot/imported/WrongMatch.mp3-abd03ab7b6e30e2403eacbab827f6823.mp3str"
+
+[deps]
+
+source_file="res://audio/Word Match Bloops/WrongMatch.mp3"
+dest_files=["res://.godot/imported/WrongMatch.mp3-abd03ab7b6e30e2403eacbab827f6823.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

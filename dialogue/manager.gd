@@ -3,12 +3,16 @@ class_name DialogueManager extends Node2D
 @onready var speakerLeft: Speaker = $"SpeakerLeft"
 @onready var speakerRight: Speaker = $"SpeakerRight"
 
+@onready var successful_match_player = %MatchSuccess
+@onready var failed_match_player = %MatchFail
+@onready var idea = %Idea
+
 enum State {
 	SPEAKING,
 	MATCHING
 }
 
-enum Speaker {
+enum SpeakerSide {
 	LEFT,
 	RIGHT
 }
@@ -18,11 +22,16 @@ var words_length: int
 var rng = RandomNumberGenerator.new()
 
 var state = State.SPEAKING
-@export var speaker = Speaker.LEFT
+var speaker: SpeakerSide = SpeakerSide.RIGHT
 
 var current_dialogue: Array[Dictionary]
 var current_selectable: Array[Dictionary]
-var threshold: float
+var selection_threshold: float = 0.1
+var correct_selections: int = 0
+var score: int = 0
+
+var dialogue_length: int = 10
+var selectable_ratio: float = 0.3
 
 func _ready():
 	var words_string = FileAccess.get_file_as_string("res://dialogue/dictionary.json")
@@ -32,21 +41,21 @@ func _ready():
 		words.push_back(key)
 
 	words_length = len(words)
-	next_dialogue(10, 0.3)
+	next_dialogue()
 	
-func next_dialogue(length: int, ratio: float):
+func next_dialogue():
 	var dialogue: Array[Dictionary] = []
 	var selectable: Array[Dictionary] = []
 	var indices = []
 
-	while len(indices) < round(length * ratio):
-		var rand = rng.randi_range(0, length - 1)
+	while len(indices) < round(dialogue_length * selectable_ratio):
+		var rand = rng.randi_range(0, dialogue_length - 1)
 		
 		# Ensure no repeats or adjacent selectable words
 		if not indices.has(rand) and not indices.has(rand + 1) and not indices.has(rand - 1):
 			indices.push_back(rand)
 	
-	for n in length:
+	for n in dialogue_length:
 		var rand = rng.randi_range(0, words_length - 1)
 		var word = {
 			"index": n,
@@ -67,27 +76,39 @@ func next_dialogue(length: int, ratio: float):
 	speak_dialogue()
 
 func speak_dialogue():
-	# Swap current speaker
-	if speaker == Speaker.LEFT:
-		speaker == Speaker.RIGHT
-	else:
-		speaker == Speaker.LEFT
-		
 	# Update state
 	state = State.SPEAKING
+	idea.play()
 	
 	# Instruct new speaker to recite dialogue
 	match speaker:
-		Speaker.LEFT:
-			speakerLeft.speak(current_dialogue)
-			speakerRight.hide_dialogue()
-		Speaker.RIGHT:
+		SpeakerSide.LEFT:
+			speaker = SpeakerSide.RIGHT
 			speakerRight.speak(current_dialogue)
 			speakerLeft.hide_dialogue()
+		SpeakerSide.RIGHT:
+			speaker = SpeakerSide.LEFT
+			speakerLeft.speak(current_dialogue)
+			speakerRight.hide_dialogue()
 
-func select_word(word: String):
-	print("nope")
-
+func match(word: String):
+	var idx = current_selectable.find_custom(func (dict: Dictionary):
+		return dict.word == word)
+		
+	if idx >= 0:
+		successful_match_player.play()
+		correct_selections += 1
+		var dict = current_selectable[idx]
+		current_dialogue[dict.index].state = DialogueEnums.SelectionState.SELECTED
+		current_selectable.remove_at(idx)
+		
+		if correct_selections / len(current_selectable) >= selection_threshold:
+			score += 1
+			correct_selections = 0
+			next_dialogue()
+	else:
+		failed_match_player.play()
+		
 func get_random_word() -> String:
 		var rand = rng.randi_range(0, words_length - 1)
 		return words[rand]
