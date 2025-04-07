@@ -20,6 +20,7 @@ offset_bottom = 1369.0
 unique_name_in_owner = true
 stream = ExtResource("4_sb48q")
 volume_db = -10.0
+parameters/looping = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
@@ -29,6 +30,7 @@ one_shot = true
 unique_name_in_owner = true
 stream = ExtResource("5_t88pq")
 autoplay = true
+parameters/looping = true
 
 [node name="TheEndSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
