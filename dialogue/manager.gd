@@ -32,6 +32,7 @@ var score: int = 0
 
 var dialogue_length: int = 10
 var selectable_ratio: float = 0.3
+signal failed
 
 func _ready():
 	var words_string = FileAccess.get_file_as_string("res://dialogue/dictionary.json")
@@ -127,7 +128,7 @@ func get_weighted_selectable_word(weight: float) -> String:
 			return get_random_word()
 
 func fail():
-	print("you lose")
+	emit_signal("failed")
 
 func _on_speaker_left_finished_speaking() -> void:
 	speakerRight.brainstorm(0.3, 1)
