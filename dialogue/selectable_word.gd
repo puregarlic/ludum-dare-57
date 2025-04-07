@@ -4,6 +4,8 @@ class_name SelectableWord extends RigidBody2D
 @onready var label: RichTextLabel = $Label
 @onready var timer: Timer = $Timer
 
+@export var hover_tint: Color = Color.WHITE
+
 signal clicked
 
 const scene: PackedScene = preload("res://dialogue/selectable_word.tscn")
@@ -33,4 +35,11 @@ func _on_timer_timeout() -> void:
 	
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
-		emit_signal("clicked", raw_word)
+		emit_signal("clicked", raw_word, global_position)
+		queue_free()
+
+func _on_mouse_entered() -> void:
+	%Label.modulate = hover_tint
+
+func _on_mouse_exited() -> void:
+	%Label.modulate = Color.WHITE

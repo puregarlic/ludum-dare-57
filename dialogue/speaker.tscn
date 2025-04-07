@@ -52,7 +52,6 @@ mouse_filter = 2
 
 [node name="Gear" parent="Control/VBoxContainer/HIndicatorsContainer/Control" instance=ExtResource("2_shamw")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,12 +60,8 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.0
 scale = Vector2(0.0712521, 0.0712521)
 mouse_filter = 2
-tint_progress = Color(0.580392, 0.580392, 0.580392, 1)
-enabled = false
-time_left = 1.0
 
 [node name="Control2" type="Control" parent="Control/VBoxContainer/HIndicatorsContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -89,6 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.0201296, 0.0201296)
 mouse_filter = 2
+enabled = false
 
 [node name="HDialogueContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 unique_name_in_owner = true

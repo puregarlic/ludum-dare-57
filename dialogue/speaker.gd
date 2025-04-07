@@ -18,6 +18,9 @@ class_name Speaker extends Node2D
 @onready var bust_container = %HBustContainer
 @onready var word_spawn_point = %WordSpawnPoint
 
+var correct_word_effect: PackedScene = preload("res://dialogue/correct_word_effect.tscn")
+var wrong_word_effect: PackedScene = preload("res://dialogue/wrong_word_effect.tscn")
+
 enum State {
 	SPEAKING,
 	FINISHED_SPEAKING,
@@ -146,6 +149,13 @@ func brainstorm(rate: float, probability: float) -> void:
 	brainstorm_rate = rate
 	brainstorm_probabability = probability
 
-func _on_word_clicked(word: String):
-	manager.match(word)
-	pass
+func _on_word_clicked(word: String, location: Vector2):
+	var correct: bool = manager.match(word)
+	var effect_scene: Node
+	if correct:
+		effect_scene = correct_word_effect.instantiate()
+	else:
+		effect_scene = wrong_word_effect.instantiate()
+		
+	effect_scene.global_position = location
+	add_child(effect_scene)

@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqnmq7pp80dfp"]
+[gd_scene load_steps=9 format=3 uid="uid://dqnmq7pp80dfp"]
 
 [ext_resource type="Texture2D" uid="uid://b7o32jnvu8q86" path="res://gear/gear_outer.png" id="1_q3ecm"]
 [ext_resource type="Texture2D" uid="uid://eq2x8cma05at" path="res://gear/gear_inner.png" id="2_6cers"]
 [ext_resource type="Script" uid="uid://bgo8tocj67r4m" path="res://gear/gear.gd" id="3_3a5vt"]
+[ext_resource type="AudioStream" uid="uid://rjr2smgnkajt" path="res://audio/Tension Sounds/TensionDrone.wav" id="4_6cers"]
+[ext_resource type="AudioStream" uid="uid://evqql1nmwwmj" path="res://audio/Tension Sounds/TimpaniStage01.wav" id="5_3a5vt"]
+[ext_resource type="AudioStream" uid="uid://chivnnr84xoi5" path="res://audio/Tension Sounds/TimpaniStage02.wav" id="5_64o8o"]
+[ext_resource type="AudioStream" uid="uid://d1b8d7s2k8kw0" path="res://audio/Tension Sounds/TimpaniStage03.wav" id="6_kloqy"]
+[ext_resource type="AudioStream" uid="uid://bay27i1jj2m5q" path="res://audio/Tension Sounds/TimpaniStage04.wav" id="7_kloqy"]
 
 [node name="Gear" type="TextureProgressBar"]
+visible = false
 offset_right = 512.0
 offset_bottom = 512.0
-rotation = 0.000224425
 pivot_offset = Vector2(256, 256)
 value = 100.0
 fill_mode = 3
@@ -15,7 +20,21 @@ texture_over = ExtResource("1_q3ecm")
 texture_progress = ExtResource("2_6cers")
 tint_progress = Color(0.580392, 0.580392, 0.580392, 1)
 script = ExtResource("3_3a5vt")
-enabled = true
-time_left = 1.58
+tension_sound_library = {
+0: ExtResource("5_3a5vt"),
+1: ExtResource("5_64o8o"),
+2: ExtResource("6_kloqy"),
+3: ExtResource("7_kloqy")
+}
+time_left = 1.0
 low_on_time_tint = Color(0.870434, 0.315429, 0.290914, 1)
 low_on_time_rotation_amount = 9.075
+
+[node name="DroneTension" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_6cers")
+volume_db = 3.0
+
+[node name="TensionTimpani" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_3a5vt")

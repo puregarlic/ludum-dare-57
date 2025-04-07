@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://srox2tfg3hg5"
+path="res://.godot/imported/UpperRegSpeech06v2.wav-39796d82b3e3ccfc05f87b1da62dc79f.sample"
+
+[deps]
+
+source_file="res://audio/Upper Register Speech/UpperRegSpeech06v2.wav"
+dest_files=["res://.godot/imported/UpperRegSpeech06v2.wav-39796d82b3e3ccfc05f87b1da62dc79f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

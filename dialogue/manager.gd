@@ -100,7 +100,7 @@ func speak_dialogue():
 			speakerLeft.speak(current_dialogue, dialogue_duration)
 			speakerRight.hide_dialogue()
 
-func match(word: String):
+func match(word: String) -> bool:
 	var idx = current_selectable.find_custom(func (dict: Dictionary):
 		return dict.word == word)
 		
@@ -116,8 +116,11 @@ func match(word: String):
 			correct_selections = 0
 			increase_difficulty()
 			next_dialogue()
+			
+		return true
 	else:
 		failed_match_player.play()
+		return false
 		
 func increase_difficulty():
 	dialogue_length += 1

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://eib5dueuhcn0" path="res://scrolling_background/backgrounds/background.gd" id="1_sec2o"]
 [ext_resource type="Curve" uid="uid://ch4r1a06buk83" path="res://scrolling_background/acceleration_curves/100.tres" id="2_yp1fm"]
-[ext_resource type="Script" uid="uid://c5qlg5ne7kgmy" path="res://scrolling_background/backgrounds/big_hole/big_hole_fog_falloff.gd" id="3_3ff7a"]
+[ext_resource type="Script" path="res://scrolling_background/backgrounds/big_hole/big_hole_fog_falloff.gd" id="3_3ff7a"]
 [ext_resource type="Script" uid="uid://c70ocjmtqgcup" path="res://scrolling_background/backgrounds/big_hole/angery_camera.gd" id="3_ml2ns"]
 [ext_resource type="Environment" uid="uid://csxbj4enxjbrj" path="res://scrolling_background/backgrounds/big_hole/big_hole_env.tres" id="3_rbmj6"]
 [ext_resource type="PackedScene" uid="uid://1sla2wruktvd" path="res://scrolling_background/backgrounds/big_hole/cave_wall.tscn" id="4_rbmj6"]
-[ext_resource type="Script" uid="uid://ca665u3wyad3f" path="res://scrolling_background/backgrounds/big_hole/camera_spinner.gd" id="6_db8yj"]
+[ext_resource type="Script" path="res://scrolling_background/backgrounds/big_hole/camera_spinner.gd" id="6_db8yj"]
 
 [sub_resource type="Curve3D" id="Curve3D_sec2o"]
 _data = {
@@ -25,14 +25,14 @@ default_curve = ExtResource("2_yp1fm")
 curve = SubResource("Curve3D_sec2o")
 
 [node name="CameraRailFollow3D" type="PathFollow3D" parent="CameraRail"]
-transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -3.14902, 0)
-progress = 3.14923
+transform = Transform3D(-4.37113e-08, 0.999999, 4.37114e-08, 0, -4.37113e-08, 1, 0.999999, 4.37113e-08, 1.91069e-15, 0, -14.9863, 0)
+progress = 14.9862
 
 [node name="ShakePivot" type="Node3D" parent="CameraRail/CameraRailFollow3D"]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRail/CameraRailFollow3D/ShakePivot"]
 unique_name_in_owner = true
-transform = Transform3D(0.939596, 0.337715, -0.0526904, -0.340614, 0.937974, -0.062058, 0.0284697, 0.0762706, 0.996492, 0, 0, 0)
+transform = Transform3D(0.624836, 0.780253, -0.0212405, -0.780543, 0.624544, -0.0191181, -0.00165164, 0.0285299, 0.999408, 0, 0, 0)
 fov = 90.0
 script = ExtResource("3_ml2ns")
 light_node_path = NodePath("../../../../Environment/DirectionalLight3D")

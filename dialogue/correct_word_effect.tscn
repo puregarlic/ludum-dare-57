@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsy7ydjq2ni1f"]
+
+[ext_resource type="Script" uid="uid://dvm8qi5e13550" path="res://dialogue/correct_word_effect.gd" id="1_0pjrh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bwt00"]
+lifetime_randomness = 0.83
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 1, 0)
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 399.31
+initial_velocity_max = 512.91
+gravity = Vector3(0, 98, 0)
+damping_max = 5.68
+scale_min = 4.0
+scale_max = 9.0
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 10.0
+color = Color(0.789143, 0.936473, 0.811553, 1)
+
+[node name="CorrectWordEffect" type="GPUParticles2D"]
+emitting = false
+amount = 32
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.42
+randomness = 0.15
+visibility_rect = Rect2(-400, -400, 800, 800)
+trail_enabled = true
+trail_lifetime = 0.1
+trail_sections = 2
+trail_section_subdivisions = 3
+process_material = SubResource("ParticleProcessMaterial_bwt00")
+script = ExtResource("1_0pjrh")
