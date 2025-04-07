@@ -5,9 +5,10 @@ extends Node
 @onready var grade_value_label = $MarginContainer/VBoxContainer/GradeContainer/GradeValue
 
 @export var dialogues_completed: int = 0
-@export var next_scene: PackedScene
 @export var score_sound: AudioStream
 @export var rank_sound: AudioStream
+
+signal score_anim_over
 
 const FATHOMS_PER_DIALOGUE = 5621
 
@@ -42,9 +43,8 @@ func start_score_sequence():
 	await tween.finished
 	await get_tree().create_timer(1.5).timeout
 
-	if next_scene:
-		get_tree().change_scene_to_packed(next_scene)
-
+	emit_signal("score_anim_over")
+		
 func calculate_grade(dialogues: int) -> String:
 	if dialogues < 5:
 		return "PHLEBOTOMIST"

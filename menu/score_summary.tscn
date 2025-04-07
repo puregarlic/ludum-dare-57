@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0kpb6spamnla"]
+[gd_scene load_steps=6 format=3 uid="uid://d0kpb6spamnla"]
 
 [ext_resource type="Script" uid="uid://d3tm50cq8hjgq" path="res://menu/score_summary.gd" id="1_bhxpg"]
 [ext_resource type="FontFile" uid="uid://dvxlea1bmc6k0" path="res://dialogue/fonts/Kalam-Regular.ttf" id="1_xyvbl"]
-[ext_resource type="PackedScene" uid="uid://cngn8tgxgpeho" path="res://Game.tscn" id="2_bivkw"]
 [ext_resource type="FontFile" uid="uid://bqvlxm3er5vim" path="res://dialogue/fonts/YatraOne-Regular.ttf" id="2_mvfw5"]
 [ext_resource type="AudioStream" uid="uid://tv374r64ehp7" path="res://menu/ScoreBoom.mp3" id="3_r1h0k"]
 [ext_resource type="AudioStream" uid="uid://tcsjg06apv5b" path="res://menu/GradeBoom.mp3" id="4_ghgmg"]
@@ -15,7 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bhxpg")
-next_scene = ExtResource("2_bivkw")
 score_sound = ExtResource("3_r1h0k")
 rank_sound = ExtResource("4_ghgmg")
 

@@ -30,10 +30,6 @@ unique_name_in_owner = true
 stream = ExtResource("5_t88pq")
 autoplay = true
 
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
 [node name="TheEndSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_r0x5m")
