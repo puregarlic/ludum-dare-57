@@ -163,21 +163,18 @@ unique_name_in_owner = true
 position = Vector2(252, 208)
 scale = Vector2(0.54, 0.54)
 frame_progress = 0.602348
-current_state = 2
 intensity_switch_chance = 0.2
 
 [node name="WordSpawnPoint" type="Node2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]
 unique_name_in_owner = true
 position = Vector2(-1.85184, -481.481)
 
-[node name="AudioListener2D" type="AudioListener2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]
+[node name="MurmurPlayer" type="AudioStreamPlayer2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]
 unique_name_in_owner = true
+scale = Vector2(1.85185, 1.85185)
+volume_db = 20.0
 
 [node name="Control" type="Control" parent="Control/VBoxContainer/HBustContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-
-[node name="MurmurPlayer" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-volume_db = 20.0

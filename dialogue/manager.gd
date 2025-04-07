@@ -1,11 +1,12 @@
 class_name DialogueManager extends Node2D
 
-@onready var speakerLeft: Speaker = $"SpeakerLeft"
-@onready var speakerRight: Speaker = $"SpeakerRight"
+@onready var speakerLeft = $"SpeakerLeft"
+@onready var speakerRight = $"SpeakerRight"
 
 @onready var successful_match_player = %MatchSuccess
 @onready var failed_match_player = %MatchFail
 @onready var idea = %Idea
+@onready var timer = $Timer
 
 enum State {
 	SPEAKING,
@@ -17,6 +18,8 @@ enum SpeakerSide {
 	RIGHT
 }
 
+signal failed
+
 var words: Array[String]
 var words_length: int
 var rng = RandomNumberGenerator.new()
@@ -26,13 +29,17 @@ var speaker: SpeakerSide = SpeakerSide.RIGHT
 
 var current_dialogue: Array[Dictionary]
 var current_selectable: Array[Dictionary]
-var selection_threshold: float = 0.1
 var correct_selections: int = 0
 var score: int = 0
 
-var dialogue_length: int = 10
-var selectable_ratio: float = 0.3
-signal failed
+# Difficulty knobs
+var dialogue_length: int = 5
+var dialogue_duration: float = 5
+var dialogue_selectable_ratio: float = 0.3
+var dialogue_required_match_ratio: float = 0.1
+var brainstorm_match_probability: float = 2
+var brainstorm_duration: float = 5.0
+var brainstorm_interval: float = 1
 
 func _ready():
 	var words_string = FileAccess.get_file_as_string("res://dialogue/dictionary.json")
@@ -45,11 +52,12 @@ func _ready():
 	next_dialogue()
 	
 func next_dialogue():
+	timer.stop()
 	var dialogue: Array[Dictionary] = []
 	var selectable: Array[Dictionary] = []
 	var indices = []
 
-	while len(indices) < round(dialogue_length * selectable_ratio):
+	while len(indices) < round(dialogue_length * dialogue_selectable_ratio):
 		var rand = rng.randi_range(0, dialogue_length - 1)
 		
 		# Ensure no repeats or adjacent selectable words
@@ -85,11 +93,11 @@ func speak_dialogue():
 	match speaker:
 		SpeakerSide.LEFT:
 			speaker = SpeakerSide.RIGHT
-			speakerRight.speak(current_dialogue)
+			speakerRight.speak(current_dialogue, dialogue_duration)
 			speakerLeft.hide_dialogue()
 		SpeakerSide.RIGHT:
 			speaker = SpeakerSide.LEFT
-			speakerLeft.speak(current_dialogue)
+			speakerLeft.speak(current_dialogue, dialogue_duration)
 			speakerRight.hide_dialogue()
 
 func match(word: String):
@@ -103,12 +111,17 @@ func match(word: String):
 		current_dialogue[dict.index].state = DialogueEnums.SelectionState.SELECTED
 		current_selectable.remove_at(idx)
 		
-		if correct_selections / len(current_selectable) >= selection_threshold:
+		if correct_selections / len(current_selectable) >= dialogue_required_match_ratio:
 			score += 1
 			correct_selections = 0
+			increase_difficulty()
 			next_dialogue()
 	else:
 		failed_match_player.play()
+		
+func increase_difficulty():
+	dialogue_length += 1
+	brainstorm_interval = max(0.5, brainstorm_interval - 0.05)
 		
 func get_random_word() -> String:
 		var rand = rng.randi_range(0, words_length - 1)
@@ -127,11 +140,13 @@ func get_weighted_selectable_word(weight: float) -> String:
 		_:
 			return get_random_word()
 
-func fail():
-	emit_signal("failed")
-
 func _on_speaker_left_finished_speaking() -> void:
-	speakerRight.brainstorm(0.3, 1)
+	timer.start(brainstorm_duration)
+	speakerRight.brainstorm(brainstorm_interval, brainstorm_match_probability)
 
 func _on_speaker_right_finished_speaking() -> void:
-	speakerLeft.brainstorm(0.3, 1)
+	timer.start(brainstorm_duration)
+	speakerLeft.brainstorm(brainstorm_interval, brainstorm_match_probability)
+
+func _on_timer_timeout() -> void:
+	emit_signal("failed")

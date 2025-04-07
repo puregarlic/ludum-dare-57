@@ -56,7 +56,6 @@ func _ready():
 func _process(delta: float) -> void:
 	match state:
 		State.SPEAKING:
-			listener.make_current()
 			if elapsed >= speech_duration:
 				label.visible_ratio = 1
 				state = State.FINISHED_SPEAKING
@@ -81,7 +80,6 @@ func _process(delta: float) -> void:
 				
 				elapsed += delta
 		State.THINKING:
-			listener.make_current()
 			if elapsed >= brainstorm_rate:
 				elapsed = 0
 				spawn_word(manager.get_weighted_selectable_word(brainstorm_probabability))
@@ -133,7 +131,7 @@ func speak(dialogue: Array[Dictionary], duration: int = speech_duration):
 	format_dialogue(dialogue)
 	
 	speech_duration = duration
-	panel.visible = true
+	panel.visible = true 
 	state = State.SPEAKING
 	
 func hide_dialogue():
