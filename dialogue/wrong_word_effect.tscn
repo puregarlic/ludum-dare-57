@@ -24,8 +24,10 @@ scale_max = 4.0
 scale_curve = SubResource("CurveTexture_722ii")
 
 [node name="WrongWordEffect" type="GPUParticles2D"]
+emitting = false
 amount = 30
 texture = ExtResource("1_hb4xv")
+one_shot = true
 explosiveness = 0.85
 visibility_rect = Rect2(-200, -200, 400, 400)
 process_material = SubResource("ParticleProcessMaterial_w4agj")
