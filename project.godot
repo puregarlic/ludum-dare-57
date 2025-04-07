@@ -27,8 +27,3 @@ window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 mouse_cursor/custom_image="uid://bwyekfrjltrbm"
 window/main_scene="uid://dsply3kn0se66"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
