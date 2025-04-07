@@ -121,7 +121,7 @@ func match(word: String):
 		
 func increase_difficulty():
 	dialogue_length += 1
-	brainstorm_interval = max(0.5, brainstorm_interval - 0.05)
+	brainstorm_interval = max(0.5, brainstorm_interval - 0.02)
 		
 func get_random_word() -> String:
 		var rand = rng.randi_range(0, words_length - 1)
