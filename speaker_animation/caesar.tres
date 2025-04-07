@@ -676,7 +676,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("155_b0a5w")
 }],
-"loop": true,
+"loop": false,
 "name": &"talk_idle",
 "speed": 5.0
 }]

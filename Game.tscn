@@ -12,7 +12,6 @@ script = ExtResource("1_sb48q")
 [node name="ScrollingBackgroundEngine" parent="." instance=ExtResource("1_80nbo")]
 offset_right = 2560.0
 offset_bottom = 1369.0
-mouse_filter = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("1_u44n3")]
 

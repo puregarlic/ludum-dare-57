@@ -5,6 +5,8 @@
 
 [node name="SpeakerAnimation" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_3hjk1")
-animation = &"idle"
+animation = &"talk_idle"
+frame_progress = 1.0
 script = ExtResource("162_yabmj")
+current_state = 2
 philosopher = 1

@@ -1,4 +1,3 @@
-@tool
 class_name Bust extends AnimatedSprite2D
 
 enum SpeakerAnimationStates { 
@@ -13,7 +12,20 @@ enum Philosopher {
 	CAESAR 
 }
 
-@export var current_state: SpeakerAnimationStates = SpeakerAnimationStates.MATCHING
+@export var current_state: SpeakerAnimationStates = SpeakerAnimationStates.MATCHING:
+	set(value):
+		current_state = value
+		match current_state:
+			SpeakerAnimationStates.MATCHING:
+				matching()
+			SpeakerAnimationStates.NERVOUS:
+				nervous()
+			SpeakerAnimationStates.TALK_IDLE:
+				prepare_talk()
+			SpeakerAnimationStates.TALK:
+				talk()
+			
+		
 @export var intensity: int = 0
 @export var philosopher: Philosopher = Philosopher.PIUS:
 	set(value):
@@ -32,10 +44,9 @@ var target_temp := 0.2
 
 func _ready() -> void:
 	intensity = 0
-	current_state = SpeakerAnimationStates.MATCHING
 	
 	load_philosopher()
-	matching()
+	current_state = SpeakerAnimationStates.MATCHING
 
 ## Dummy function to test out speaking animation
 #func _process(delta: float) -> void:
@@ -51,18 +62,13 @@ func _ready() -> void:
 
 func matching():
 	play("idle")
-	current_state = SpeakerAnimationStates.MATCHING
 	
 func prepare_talk():
 	play("talk_idle")
-	current_state = SpeakerAnimationStates.TALK_IDLE
-	
 
 # When in the respective phase, call these functions to start the specific animations
 func nervous():
 	play("nervous")
-	current_state = SpeakerAnimationStates.NERVOUS
-	
 	
 func talk():
 	var target_intensity := intensity
@@ -78,9 +84,9 @@ func talk():
 		_:
 			play("talk1")
 			
-	current_state = SpeakerAnimationStates.TALK
 	await animation_finished
-	prepare_talk()
+	if current_state == SpeakerAnimationStates.TALK:
+		current_state = SpeakerAnimationStates.TALK_IDLE
 
 # Internal functions don't use
 func load_philosopher():

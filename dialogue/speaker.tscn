@@ -28,28 +28,31 @@ mouse_filter = 2
 [node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HIndicatorsContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(30, 0)
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/HIndicatorsContainer"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="Control/VBoxContainer/HIndicatorsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Gear" parent="Control/VBoxContainer/HBoxContainer/Control" instance=ExtResource("2_shamw")]
+[node name="Gear" parent="Control/VBoxContainer/HIndicatorsContainer/Control" instance=ExtResource("2_shamw")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,21 +61,21 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.0520537
+rotation = 0.0
 scale = Vector2(0.0712521, 0.0712521)
 mouse_filter = 2
-value = 35.0
-tint_progress = Color(0.820734, 0.360832, 0.340517, 1)
-time_left = 0.345
+tint_progress = Color(0.580392, 0.580392, 0.580392, 1)
+enabled = false
+time_left = 1.0
 
-[node name="Control2" type="Control" parent="Control/VBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="Control/VBoxContainer/HIndicatorsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Lightbulb" parent="Control/VBoxContainer/HBoxContainer/Control2" instance=ExtResource("3_wxj1k")]
+[node name="Lightbulb" parent="Control/VBoxContainer/HIndicatorsContainer/Control2" instance=ExtResource("3_wxj1k")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -159,7 +162,8 @@ mouse_filter = 2
 unique_name_in_owner = true
 position = Vector2(252, 208)
 scale = Vector2(0.54, 0.54)
-frame_progress = 0.321109
+frame_progress = 0.602348
+current_state = 2
 intensity_switch_chance = 0.2
 
 [node name="WordSpawnPoint" type="Node2D" parent="Control/VBoxContainer/HBustContainer/MarginContainer/Control2/SpeakerAnimation"]

@@ -61,9 +61,10 @@ x_offset = -400.0
 [node name="Pius" type="AnimatedSprite2D" parent="PiusBounceTarget"]
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("6_youj7")
-animation = &"idle"
-frame_progress = 0.968388
+animation = &"talk_idle"
+frame_progress = 1.0
 script = ExtResource("7_l5uyn")
+current_state = 2
 metadata/_custom_type_script = "uid://dyu5v1aolugg3"
 
 [node name="CaesarBounceTarget" type="Node2D" parent="."]
@@ -75,8 +76,9 @@ x_offset = 400.0
 [node name="Caesar" type="AnimatedSprite2D" parent="CaesarBounceTarget"]
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("7_0tw43")
-animation = &"idle"
-frame_progress = 0.253447
+animation = &"talk_idle"
+frame_progress = 1.0
 script = ExtResource("7_l5uyn")
+current_state = 2
 philosopher = 1
 metadata/_custom_type_script = "uid://dyu5v1aolugg3"
