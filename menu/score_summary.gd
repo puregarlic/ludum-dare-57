@@ -46,15 +46,15 @@ func start_score_sequence():
 	emit_signal("score_anim_over")
 		
 func calculate_grade(dialogues: int) -> String:
-	if dialogues < 3:
+	if dialogues < 5:
 		return "PHLEBOTOMIST"
-	elif dialogues < 6:
+	elif dialogues < 10:
 		return "SCHOLAR"
-	elif dialogues < 9:
-		return "ORATOR"
-	elif dialogues < 12:
-		return "PHILOSOPHER"
 	elif dialogues < 15:
+		return "ORATOR"
+	elif dialogues < 20:
+		return "PHILOSOPHER"
+	elif dialogues < 25:
 		return "THE GREAT"
 	else:
 		return "IMMORTAL PERSUASION!"

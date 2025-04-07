@@ -62,6 +62,6 @@ func _reload_self():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
-		Input.set_custom_mouse_cursor(cursor_closed, 0, Vector2(2, 1))
+		Input.set_custom_mouse_cursor(cursor_closed, 0, Vector2(40, 32))
 	elif event is InputEventMouseButton and not event.is_pressed():
-		Input.set_custom_mouse_cursor(cursor_open, 0, Vector2(2, 1))
+		Input.set_custom_mouse_cursor(cursor_open, 0, Vector2(40, 32))
