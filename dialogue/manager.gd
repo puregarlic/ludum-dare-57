@@ -111,6 +111,12 @@ func match(word: String) -> bool:
 		current_dialogue[dict.index].state = DialogueEnums.SelectionState.SELECTED
 		current_selectable.remove_at(idx)
 		
+		match speaker:
+			SpeakerSide.LEFT:
+				speakerLeft.update_speech(current_dialogue)
+			SpeakerSide.RIGHT:
+				speakerRight.update_speech(current_dialogue)
+		
 		if correct_selections / len(current_selectable) >= dialogue_required_match_ratio:
 			score += 1
 			correct_selections = 0

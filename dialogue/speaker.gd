@@ -40,7 +40,9 @@ var brainstorm_rate = 1
 var brainstorm_probabability = 0.3
 var brainstorm_force = 900
 var state = State.FINISHED_SPEAKING
-var url_format = "[color=coral]{word}[/color]"
+
+var selectable_format = "[color=aqua]%s[/color]"
+var selected_format = "[color=dark_blue]%s[/color]"
 var format = " [font n={font} {args}]{word}[/font]"
 
 func _ready():
@@ -103,7 +105,7 @@ func spawn_word(word: String):
 
 func format_dialogue(dialogue: Array[Dictionary]):
 	# Insert formatted bbCode text into label
-	var text = ""
+	var text = "[color=pink]"
 
 	for word in dialogue:
 		var format_params = {
@@ -117,14 +119,14 @@ func format_dialogue(dialogue: Array[Dictionary]):
 			DialogueEnums.SelectionState.AESTHETIC:
 				format_params.font = block_font.resource_path
 				format_params.args = block_font_args
-				
-		# Append bbCode depending on word state
-		if word.state == DialogueEnums.SelectionState.SELECTABLE:
-			format_params.word = url_format.format({ "payload": word, "word": word.word })
+			DialogueEnums.SelectionState.SELECTABLE:
+				format_params.word = selectable_format % word.word
+			DialogueEnums.SelectionState.SELECTED:
+				format_params.word = selected_format % word.word
 		
 		text += format.format(format_params)
 		
-	label.parse_bbcode(text)
+	label.parse_bbcode(text + "[/color]")
 
 func speak(dialogue: Array[Dictionary], duration: int = speech_duration):
 	# Display dialog with typewriter effect
