@@ -68,10 +68,10 @@ func _ready():
 func _process(delta: float) -> void:
 	match state:
 		State.SPEAKING:
-			if elapsed >= speech_duration:
+			if label.visible_characters >= label.get_total_character_count() - 1:
 				label.visible_ratio = 1
 				state = State.FINISHED_SPEAKING
-				elapsed = 0
+				elapsed = 0.0
 				finished_speaking.emit()
 				bust.prepare_talk()
 				char_delta = 0.0
@@ -86,12 +86,9 @@ func _process(delta: float) -> void:
 						player.set_stream(voice_map[c])
 						player.play()
 						bust.talk()
-					
 					char_delta -= cps
 					
 				char_delta += delta
-				
-				elapsed += delta
 		State.THINKING:
 			%Gear.time_left = active_timer.time_left / manager.brainstorm_duration
 			
