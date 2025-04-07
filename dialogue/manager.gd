@@ -40,6 +40,7 @@ var dialogue_required_match_ratio: float = 0.1
 var brainstorm_match_probability: float = 2
 var brainstorm_duration: float = 5.0
 var brainstorm_interval: float = 1
+var weight_weight := 0
 
 func _ready():
 	var words_string = FileAccess.get_file_as_string("res://dialogue/dictionary.json")
@@ -141,12 +142,18 @@ func get_random_selectable_word() -> String:
 		return current_selectable[rand].word
 
 func get_weighted_selectable_word(weight: float) -> String:
-	var correct_or_not = rng.rand_weighted(PackedFloat32Array([weight, 1]))
+	var correct_or_not = rng.rand_weighted(PackedFloat32Array([weight + weight_weight, 1]))
 	
 	match correct_or_not:
 		0:
+			weight_weight = 0
 			return get_random_selectable_word()
 		_:
+			weight_weight += 0.15
+			
+			if weight_weight >= 0.6:
+				weight_weight = 0
+				return get_random_selectable_word()
 			return get_random_word()
 
 func _on_speaker_left_finished_speaking() -> void:
